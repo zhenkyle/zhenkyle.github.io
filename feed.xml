@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Your awesome title</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</description>
-    <link>http://yourdomain.com/</link>
-    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml" />
+    <title>zhenke blog</title>
+    <description>This my awesome blog.</description>
+    <link>http://zhenkeblog.cn/</link>
+    <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>VirtualBox SMBus error</title>
@@ -19,8 +19,8 @@ add “blacklist i2c_piix4” to file
 &lt;p&gt;&lt;a href=&quot;http://blog.portnumber53.com/2013/08/27/virtualbox-fixing-piix4_smbus-0000-00-07-0-smbus-base-address-uninitialized-upgrade-bios-or-use-force_addr0xaddr/&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 24 Mar 2014 08:34:00 -0400</pubDate>
-        <link>http://yourdomain.com/tools/2014/03/24/virtualbox-smbus-error/</link>
-        <guid isPermaLink="true">http://yourdomain.com/tools/2014/03/24/virtualbox-smbus-error/</guid>
+        <link>http://zhenkeblog.cn/tools/2014/03/24/virtualbox-smbus-error/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/tools/2014/03/24/virtualbox-smbus-error/</guid>
       </item>
     
       <item>
@@ -30,8 +30,8 @@ add “blacklist i2c_piix4” to file
 &lt;p&gt;可以到这里下载&lt;a href=&quot;http://www.vbox.me&quot;&gt;www.vbox.me&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 24 Mar 2014 07:45:00 -0400</pubDate>
-        <link>http://yourdomain.com/tools/2014/03/24/portable-virtualbox/</link>
-        <guid isPermaLink="true">http://yourdomain.com/tools/2014/03/24/portable-virtualbox/</guid>
+        <link>http://zhenkeblog.cn/tools/2014/03/24/portable-virtualbox/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/tools/2014/03/24/portable-virtualbox/</guid>
       </item>
     
       <item>
@@ -47,8 +47,8 @@ add “blacklist i2c_piix4” to file
 
 </description>
         <pubDate>Tue, 04 Mar 2014 11:46:00 -0500</pubDate>
-        <link>http://yourdomain.com/javaee/2014/03/04/tomcat-manager-user/</link>
-        <guid isPermaLink="true">http://yourdomain.com/javaee/2014/03/04/tomcat-manager-user/</guid>
+        <link>http://zhenkeblog.cn/javaee/2014/03/04/tomcat-manager-user/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/04/tomcat-manager-user/</guid>
       </item>
     
       <item>
@@ -104,8 +104,8 @@ add “blacklist i2c_piix4” to file
 &lt;h2 id=&quot;eclipse&quot;&gt;安装Eclipse&lt;/h2&gt;
 </description>
         <pubDate>Tue, 04 Mar 2014 11:46:00 -0500</pubDate>
-        <link>http://yourdomain.com/javaee/2014/03/04/javaee-develop-environment-setup/</link>
-        <guid isPermaLink="true">http://yourdomain.com/javaee/2014/03/04/javaee-develop-environment-setup/</guid>
+        <link>http://zhenkeblog.cn/javaee/2014/03/04/javaee-develop-environment-setup/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/04/javaee-develop-environment-setup/</guid>
       </item>
     
       <item>
@@ -143,8 +143,8 @@ add “blacklist i2c_piix4” to file
 &lt;p&gt;&lt;a href=&quot;http://wiki.openwrt.org/doc/howto/generic.backup&quot;&gt;Openwrt wiki generic backup&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 07 Jan 2014 10:53:00 -0500</pubDate>
-        <link>http://yourdomain.com/openwrt/2014/01/07/openwrt-in-wr3420/</link>
-        <guid isPermaLink="true">http://yourdomain.com/openwrt/2014/01/07/openwrt-in-wr3420/</guid>
+        <link>http://zhenkeblog.cn/openwrt/2014/01/07/openwrt-in-wr3420/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/openwrt/2014/01/07/openwrt-in-wr3420/</guid>
       </item>
     
       <item>
@@ -456,8 +456,8 @@ opkg install aria2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;该网站只支持首选语言为英语的浏览器。IE/Firefox/Safari都有解决方法，但是使用Chrome可以直接打开。&lt;/p&gt;
 </description>
         <pubDate>Fri, 27 Dec 2013 06:20:02 -0500</pubDate>
-        <link>http://yourdomain.com/openwrt/2013/12/27/openwrt-in-wr703n/</link>
-        <guid isPermaLink="true">http://yourdomain.com/openwrt/2013/12/27/openwrt-in-wr703n/</guid>
+        <link>http://zhenkeblog.cn/openwrt/2013/12/27/openwrt-in-wr703n/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/openwrt/2013/12/27/openwrt-in-wr703n/</guid>
       </item>
     
       <item>
@@ -467,8 +467,8 @@ opkg install aria2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;jekyll安装成功，开始打造自己的梦幻blog。&lt;/p&gt;
 </description>
         <pubDate>Fri, 27 Dec 2013 06:20:02 -0500</pubDate>
-        <link>http://yourdomain.com/jekyll/2013/12/27/first-post/</link>
-        <guid isPermaLink="true">http://yourdomain.com/jekyll/2013/12/27/first-post/</guid>
+        <link>http://zhenkeblog.cn/jekyll/2013/12/27/first-post/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/jekyll/2013/12/27/first-post/</guid>
       </item>
     
   </channel>
