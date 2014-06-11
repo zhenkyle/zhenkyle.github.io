@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tomcat 控制台用户设置</title>
+    <title>Jave EE 开发环境配置</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="This my awesome blog.">
-    <link rel="canonical" href="http://zhenkeblog.cn/javaee/2014/03/04/tomcat-manager-user/">
+    <link rel="canonical" href="http://zhenkeblog.cn/javaee/2014/03/05/javaee-develop-environment-setup/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -56,20 +56,60 @@
       <div class="post">
 
   <header class="post-header">
-    <h1>Tomcat 控制台用户设置</h1>
-    <p class="meta">Mar 4, 2014</p>
+    <h1>Jave EE 开发环境配置</h1>
+    <p class="meta">Mar 5, 2014</p>
   </header>
 
   <article class="post-content">
-  <p>登录Tomcat控制台“Manager App”，需要输入用户名、密码</p>
+  <p>以下步骤是Java EE 开发环境在32位Windows环境中的配置。</p>
 
-<p>设置方法如下，编辑conf\tomcat-users.xml</p>
+<h2 id="jdk">安装JDK</h2>
 
-<div class="highlight"><pre><code class="xml"><span class="nt">&lt;tomcat-users&gt;</span>
-<span class="nt">&lt;role</span> <span class="na">rolename=</span><span class="s">&quot;manager-gui&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;user</span> <span class="na">username=</span><span class="s">&quot;tomcat&quot;</span> <span class="na">password=</span><span class="s">&quot;zhenke1979&quot;</span> <span class="na">roles=</span><span class="s">&quot;manager-gui&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/tomcat-users&gt;</span></code></pre></div>
+<p>到[Oracle网站][http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html]下载 jdk-7u51-windows-i586.exe</p>
 
+<p>安装</p>
+
+<p>配置环境变量</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="no">JAVA_HOME</span> <span class="o">=</span> <span class="ss">C</span><span class="p">:\</span><span class="no">Program</span> <span class="no">Files</span><span class="p">\</span><span class="no">Java</span><span class="p">\</span><span class="n">jdk1</span><span class="o">.</span><span class="mi">7</span><span class="o">.</span><span class="mo">0_51</span>  <span class="c1">#JAVA_HOME 代表 JDK安装路径</span>
+<span class="no">CLASSPATH</span> <span class="o">=</span> <span class="o">%</span><span class="no">JAVA_HOME</span><span class="sx">%\lib\</span><span class="n">tools</span><span class="o">.</span><span class="n">jar</span><span class="p">;</span><span class="o">%</span><span class="no">JAVA_HOME</span><span class="sx">%\lib\</span><span class="n">dt</span><span class="o">.</span><span class="n">jar</span>
+<span class="no">PATH</span> <span class="err">中加入</span> <span class="o">%</span><span class="no">JAVA_HOME</span><span class="o">%</span><span class="p">\</span><span class="n">bin</span>  <span class="c1">#这条好像不做也可以</span></code></pre></div>
+
+<h2 id="tomcat">安装Tomcat</h2>
+
+<p>到[Tomcat网站][http://tomcat.apache.org/download-70.cgi] 下载 7.0.52 – Binary Distribution - Core - [32bit Windows zip][http://mirrors.cnnic.cn/apache/tomcat/tomcat-7/v7.0.52/bin/apache-tomcat-7.0.52-windows-x86.zip]</p>
+
+<p>解压缩到 d:\java_dev\apache-tomcat-7.0.52 中</p>
+
+<p>配置环境变量</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="no">Tomcat</span> <span class="err">只需要</span> <span class="no">JAVA_HOME</span><span class="err">正常设置</span></code></pre></div>
+
+<p>启动Tomcat</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="n">cd</span> <span class="ss">d</span><span class="p">:\</span><span class="n">java_dev</span><span class="p">\</span><span class="n">apache</span><span class="o">-</span><span class="n">tomcat</span><span class="o">-</span><span class="mi">7</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">52</span><span class="p">\</span><span class="n">bin</span>
+<span class="n">startup</span><span class="o">.</span><span class="n">bat</span></code></pre></div>
+
+<p>停止Tomcat</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="n">cd</span> <span class="ss">d</span><span class="p">:\</span><span class="n">java_dev</span><span class="p">\</span><span class="n">apache</span><span class="o">-</span><span class="n">tomcat</span><span class="o">-</span><span class="mi">7</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">52</span><span class="p">\</span><span class="n">bin</span>
+<span class="n">shutdown</span><span class="o">.</span><span class="n">bat</span></code></pre></div>
+
+<h2 id="ant">安装Ant</h2>
+
+<p>到[Ant 网站][http://ant.apache.org/bindownload.cgi] 下载[apache-ant-1.9.3-bin.zip][http://apache.fayea.com/apache-mirror//ant/binaries/apache-ant-1.9.3-bin.zip]</p>
+
+<p>解压缩到 d:\java_dev\apache-ant-1.9.3 中</p>
+
+<p>配置环境变量</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="no">ANT_HOME</span> <span class="o">=</span> <span class="ss">d</span><span class="p">:\</span><span class="n">java_dev</span><span class="p">\</span><span class="n">apache</span><span class="o">-</span><span class="n">ant</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">3</span>
+<span class="no">PATH</span> <span class="err">中加入</span> <span class="o">%</span><span class="no">ANT_HOME</span><span class="o">%</span><span class="p">\</span><span class="n">bin</span></code></pre></div>
+
+<h2 id="mysql-51">安装MySQL 5.1或更高版本</h2>
+<p>此处略</p>
+
+<h2 id="eclipse">安装Eclipse</h2>
 
   </article>
 
