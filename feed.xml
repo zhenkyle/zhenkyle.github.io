@@ -18,7 +18,7 @@ add “blacklist i2c_piix4” to file
 
 &lt;p&gt;&lt;a href=&quot;http://blog.portnumber53.com/2013/08/27/virtualbox-fixing-piix4_smbus-0000-00-07-0-smbus-base-address-uninitialized-upgrade-bios-or-use-force_addr0xaddr/&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Mon, 24 Mar 2014 20:34:00 +0800</pubDate>
+        <pubDate>Mon, 24 Mar 2014 08:34:00 -0400</pubDate>
         <link>http://zhenkeblog.cn/tools/2014/03/24/virtualbox-smbus-error/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/tools/2014/03/24/virtualbox-smbus-error/</guid>
       </item>
@@ -29,7 +29,7 @@ add “blacklist i2c_piix4” to file
 
 &lt;p&gt;可以到这里下载&lt;a href=&quot;http://www.vbox.me&quot;&gt;www.vbox.me&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Mon, 24 Mar 2014 19:45:00 +0800</pubDate>
+        <pubDate>Mon, 24 Mar 2014 07:45:00 -0400</pubDate>
         <link>http://zhenkeblog.cn/tools/2014/03/24/portable-virtualbox/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/tools/2014/03/24/portable-virtualbox/</guid>
       </item>
@@ -46,9 +46,9 @@ add “blacklist i2c_piix4” to file
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tomcat-users&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 </description>
-        <pubDate>Wed, 05 Mar 2014 00:46:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/javaee/2014/03/05/tomcat-manager-user/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/05/tomcat-manager-user/</guid>
+        <pubDate>Tue, 04 Mar 2014 11:46:00 -0500</pubDate>
+        <link>http://zhenkeblog.cn/javaee/2014/03/04/tomcat-manager-user/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/04/tomcat-manager-user/</guid>
       </item>
     
       <item>
@@ -103,9 +103,9 @@ add “blacklist i2c_piix4” to file
 
 &lt;h2 id=&quot;eclipse&quot;&gt;安装Eclipse&lt;/h2&gt;
 </description>
-        <pubDate>Wed, 05 Mar 2014 00:46:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/javaee/2014/03/05/javaee-develop-environment-setup/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/05/javaee-develop-environment-setup/</guid>
+        <pubDate>Tue, 04 Mar 2014 11:46:00 -0500</pubDate>
+        <link>http://zhenkeblog.cn/javaee/2014/03/04/javaee-develop-environment-setup/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/04/javaee-develop-environment-setup/</guid>
       </item>
     
       <item>
@@ -142,7 +142,7 @@ add “blacklist i2c_piix4” to file
 
 &lt;p&gt;&lt;a href=&quot;http://wiki.openwrt.org/doc/howto/generic.backup&quot;&gt;Openwrt wiki generic backup&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Tue, 07 Jan 2014 23:53:00 +0800</pubDate>
+        <pubDate>Tue, 07 Jan 2014 10:53:00 -0500</pubDate>
         <link>http://zhenkeblog.cn/openwrt/2014/01/07/openwrt-in-wr3420/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/openwrt/2014/01/07/openwrt-in-wr3420/</guid>
       </item>
@@ -455,9 +455,21 @@ opkg install aria2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&quot;wikiopenwrtorg&quot;&gt;wiki.openwrt.org打不开&lt;/h3&gt;
 &lt;p&gt;该网站只支持首选语言为英语的浏览器。IE/Firefox/Safari都有解决方法，但是使用Chrome可以直接打开。&lt;/p&gt;
 </description>
-        <pubDate>Fri, 27 Dec 2013 19:20:02 +0800</pubDate>
+        <pubDate>Fri, 27 Dec 2013 06:20:02 -0500</pubDate>
         <link>http://zhenkeblog.cn/openwrt/2013/12/27/openwrt-in-wr703n/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/openwrt/2013/12/27/openwrt-in-wr703n/</guid>
+      </item>
+    
+      <item>
+        <title>Make putty support UTF-8</title>
+        <description>&lt;p&gt;In Putty, window–translation
+change &lt;code&gt;received data assumed to be in which charater&lt;/code&gt; to &lt;code&gt;utf8&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;[reference][http://putty.ws/putty-uft8]&lt;/p&gt;
+</description>
+        <pubDate>Fri, 27 Dec 2013 06:20:02 -0500</pubDate>
+        <link>http://zhenkeblog.cn/jekyll/2013/12/27/make-putty-support-utf-8/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/jekyll/2013/12/27/make-putty-support-utf-8/</guid>
       </item>
     
       <item>
@@ -466,7 +478,7 @@ opkg install aria2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;jekyll安装成功，开始打造自己的梦幻blog。&lt;/p&gt;
 </description>
-        <pubDate>Fri, 27 Dec 2013 19:20:02 +0800</pubDate>
+        <pubDate>Fri, 27 Dec 2013 06:20:02 -0500</pubDate>
         <link>http://zhenkeblog.cn/jekyll/2013/12/27/first-post/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/jekyll/2013/12/27/first-post/</guid>
       </item>
