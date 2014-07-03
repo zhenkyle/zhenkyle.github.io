@@ -7,6 +7,18 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Make putty support UTF-8</title>
+        <description>&lt;p&gt;In Putty, window–translation
+change &lt;code&gt;received data assumed to be in which charater&lt;/code&gt; to &lt;code&gt;utf8&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://putty.ws/putty-uft8&quot;&gt;reference&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 03 Jul 2014 10:48:02 -0400</pubDate>
+        <link>http://zhenkeblog.cn/jekyll/2014/07/03/make-putty-support-utf-8/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/jekyll/2014/07/03/make-putty-support-utf-8/</guid>
+      </item>
+    
+      <item>
         <title>VirtualBox SMBus error</title>
         <description>&lt;p&gt;VirtualBox4.36安装Ubuntu13.10报&lt;/p&gt;
 
@@ -458,18 +470,6 @@ opkg install aria2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
         <pubDate>Fri, 27 Dec 2013 06:20:02 -0500</pubDate>
         <link>http://zhenkeblog.cn/openwrt/2013/12/27/openwrt-in-wr703n/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/openwrt/2013/12/27/openwrt-in-wr703n/</guid>
-      </item>
-    
-      <item>
-        <title>Make putty support UTF-8</title>
-        <description>&lt;p&gt;In Putty, window–translation
-change &lt;code&gt;received data assumed to be in which charater&lt;/code&gt; to &lt;code&gt;utf8&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;[reference][http://putty.ws/putty-uft8]&lt;/p&gt;
-</description>
-        <pubDate>Fri, 27 Dec 2013 06:20:02 -0500</pubDate>
-        <link>http://zhenkeblog.cn/jekyll/2013/12/27/make-putty-support-utf-8/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/jekyll/2013/12/27/make-putty-support-utf-8/</guid>
       </item>
     
       <item>
