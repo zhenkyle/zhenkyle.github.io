@@ -7,6 +7,21 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Using regular expression in Sublime Text</title>
+        <description>&lt;p&gt;Find: CRTL + F &lt;/p&gt;
+
+&lt;p&gt;Replace: CRTL + H&lt;/p&gt;
+
+&lt;p&gt;Use ALT + R to toggle Regular expression&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://sublime-text.readthedocs.org/en/latest/search_and_replace/search_and_replace.html&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 03 Jul 2014 11:18:02 -0400</pubDate>
+        <link>http://zhenkeblog.cn/sublime_text/2014/07/03/sublime-text-using-regular-expression/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/sublime_text/2014/07/03/sublime-text-using-regular-expression/</guid>
+      </item>
+    
+      <item>
         <title>Jailbreak ios 7.1.2</title>
         <description>&lt;h3 id=&quot;install-itunes&quot;&gt;Install iTunes&lt;/h3&gt;
 &lt;p&gt;Using Qudong Jingling&lt;/p&gt;
@@ -30,8 +45,9 @@
 &lt;p&gt;Using Pangu&lt;/p&gt;
 
 &lt;h3 id=&quot;restore-everything&quot;&gt;Restore Everything&lt;/h3&gt;
-&lt;p&gt;Using backups above
-&lt;a href=&quot;http://iphone.tgbus.com&quot;&gt;reference&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Using backups above&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://iphone.tgbus.com&quot;&gt;reference&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 03 Jul 2014 11:18:02 -0400</pubDate>
         <link>http://zhenkeblog.cn/ios/2014/07/03/jailbreak-ios-7-1/</link>
