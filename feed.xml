@@ -7,6 +7,38 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Jailbreak ios 7.1.2</title>
+        <description>&lt;h3 id=&quot;install-itunes&quot;&gt;Install iTunes&lt;/h3&gt;
+&lt;p&gt;Using Qudong Jingling&lt;/p&gt;
+
+&lt;h3 id=&quot;backup-address-book&quot;&gt;Backup address book&lt;/h3&gt;
+&lt;p&gt;Using QQ Pim&lt;/p&gt;
+
+&lt;h3 id=&quot;backup-photos&quot;&gt;Backup photos&lt;/h3&gt;
+&lt;p&gt;Using iCloud or copy to PC&lt;/p&gt;
+
+&lt;h3 id=&quot;backup-useful-apps&quot;&gt;Backup useful apps&lt;/h3&gt;
+&lt;p&gt;Using iFunbox&lt;/p&gt;
+
+&lt;h3 id=&quot;make-a-list-of-reinstall-apps&quot;&gt;Make a list of reinstall apps&lt;/h3&gt;
+&lt;p&gt;This is for apps in App store&lt;/p&gt;
+
+&lt;h3 id=&quot;restore-to-712-factory-default&quot;&gt;Restore to 7.1.2 factory default&lt;/h3&gt;
+&lt;p&gt;Using iTunes&lt;/p&gt;
+
+&lt;h3 id=&quot;jailbreak-it&quot;&gt;Jailbreak it&lt;/h3&gt;
+&lt;p&gt;Using Pangu&lt;/p&gt;
+
+&lt;h3 id=&quot;restore-everything&quot;&gt;Restore Everything&lt;/h3&gt;
+&lt;p&gt;Using backups above
+&lt;a href=&quot;http://iphone.tgbus.com&quot;&gt;reference&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 03 Jul 2014 11:18:02 -0400</pubDate>
+        <link>http://zhenkeblog.cn/ios/2014/07/03/jailbreak-ios-7-1/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/ios/2014/07/03/jailbreak-ios-7-1/</guid>
+      </item>
+    
+      <item>
         <title>Make putty support UTF-8</title>
         <description>&lt;p&gt;In Putty, window–translation
 change &lt;code&gt;received data assumed to be in which charater&lt;/code&gt; to &lt;code&gt;utf8&lt;/code&gt;&lt;/p&gt;
