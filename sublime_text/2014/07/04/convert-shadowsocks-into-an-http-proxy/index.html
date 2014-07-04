@@ -65,22 +65,21 @@
 
 <p><a href="httpwww.pps.univ-paris-diderot.fr~jchsoftwarefilespolipo">Download polipo for windows</a></p>
 
-<p>```
-polipo socksParentProxy=localhost:1080</p>
+<pre><code>polipo socksParentProxy=localhost:1080
 
-<p>set http_proxy=http127.0.0.1:8123
-```</p>
+set http_proxy=http127.0.0.1:8123
+</code></pre>
 
-<p>Now you can play with http proxy
-```
-gem install bundler
-wget www.google.com
+<p>Now you can play with http proxy<br />
+```<br />
+gem install bundler<br />
+wget www.google.com<br />
 curl www.google.com</p>
 
-<p>git config –global http.proxy 127.0.0.1:8123
-git clone https://github.com/xxx/xxx.git
-git xxx
-git xxx
+<p>git config –global http.proxy 127.0.0.1:8123<br />
+git clone https://github.com/xxx/xxx.git<br />
+git xxx<br />
+git xxx<br />
 git config –global –unset-all http.proxy</p>
 
 <p>```</p>
