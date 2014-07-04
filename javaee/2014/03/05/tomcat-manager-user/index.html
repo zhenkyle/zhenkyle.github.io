@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>zhenke blog</title>
+    <title>Tomcat 控制台用户设置</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="This my awesome blog.">
-    <link rel="canonical" href="http://zhenkeblog.cn/">
+    <link rel="canonical" href="http://zhenkeblog.cn/javaee/2014/03/05/tomcat-manager-user/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -53,73 +53,27 @@
 
     <div class="page-content">
       <div class="wrap">
-      <div class="home">
+      <div class="post">
 
-  <h1>Posts</h1>
+  <header class="post-header">
+    <h1>Tomcat 控制台用户设置</h1>
+    <p class="meta">Mar 5, 2014</p>
+  </header>
 
-  <ul class="posts">
-    
-      <li>
-        <span class="post-date">Jul 4, 2014</span>
-        <a class="post-link" href="/sublime_text/2014/07/04/convert-shadowsocks-into-an-http-proxy/">Convert shadowsocks into an http proxy</a>
-      </li>
-    
-      <li>
-        <span class="post-date">Jul 3, 2014</span>
-        <a class="post-link" href="/sublime_text/2014/07/03/sublime-text-using-regular-expression/">Using regular expression in Sublime Text</a>
-      </li>
-    
-      <li>
-        <span class="post-date">Jul 3, 2014</span>
-        <a class="post-link" href="/ios/2014/07/03/jailbreak-ios-7-1/">Jailbreak ios 7.1.2</a>
-      </li>
-    
-      <li>
-        <span class="post-date">Jul 3, 2014</span>
-        <a class="post-link" href="/jekyll/2014/07/03/make-putty-support-utf-8/">Make putty support UTF-8</a>
-      </li>
-    
-      <li>
-        <span class="post-date">Mar 24, 2014</span>
-        <a class="post-link" href="/tools/2014/03/24/virtualbox-smbus-error/">VirtualBox SMBus error</a>
-      </li>
-    
-      <li>
-        <span class="post-date">Mar 24, 2014</span>
-        <a class="post-link" href="/tools/2014/03/24/portable-virtualbox/">Portable VirtualBox</a>
-      </li>
-    
-      <li>
-        <span class="post-date">Mar 5, 2014</span>
-        <a class="post-link" href="/javaee/2014/03/05/tomcat-manager-user/">Tomcat 控制台用户设置</a>
-      </li>
-    
-      <li>
-        <span class="post-date">Mar 5, 2014</span>
-        <a class="post-link" href="/javaee/2014/03/05/javaee-develop-environment-setup/">Jave EE 开发环境配置</a>
-      </li>
-    
-      <li>
-        <span class="post-date">Jan 7, 2014</span>
-        <a class="post-link" href="/openwrt/2014/01/07/openwrt-in-wr3420/">TL-MR3420刷openwrt固件笔记</a>
-      </li>
-    
-      <li>
-        <span class="post-date">Dec 27, 2013</span>
-        <a class="post-link" href="/openwrt/2013/12/27/openwrt-in-wr703n/">如何用wr703n刷openwrt固件实现迅雷离线下载器</a>
-      </li>
-    
-      <li>
-        <span class="post-date">Dec 27, 2013</span>
-        <a class="post-link" href="/jekyll/2013/12/27/first-post/">It works!</a>
-      </li>
-    
-  </ul>
+  <article class="post-content">
+  <p>登录Tomcat控制台“Manager App”，需要输入用户名、密码</p>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<p>设置方法如下，编辑conf\tomcat-users.xml</p>
+
+<div class="highlight"><pre><code class="xml"><span class="nt">&lt;tomcat-users&gt;</span>
+<span class="nt">&lt;role</span> <span class="na">rolename=</span><span class="s">&quot;manager-gui&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;user</span> <span class="na">username=</span><span class="s">&quot;tomcat&quot;</span> <span class="na">password=</span><span class="s">&quot;zhenke1979&quot;</span> <span class="na">roles=</span><span class="s">&quot;manager-gui&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/tomcat-users&gt;</span></code></pre></div>
+
+
+  </article>
 
 </div>
-
       </div>
     </div>
 

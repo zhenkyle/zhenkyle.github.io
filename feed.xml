@@ -7,6 +7,40 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Convert shadowsocks into an http proxy</title>
+        <description>&lt;h3 id=&quot;on-windows&quot;&gt;On Windows&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;httpwww.pps.univ-paris-diderot.fr~jchsoftwarefilespolipo&quot;&gt;Download polipo for windows&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;```
+polipo socksParentProxy=localhost:1080&lt;/p&gt;
+
+&lt;p&gt;set http_proxy=http127.0.0.1:8123
+```&lt;/p&gt;
+
+&lt;p&gt;Now you can play with http proxy
+```
+gem install bundler
+wget www.google.com
+curl www.google.com&lt;/p&gt;
+
+&lt;p&gt;git config –global http.proxy 127.0.0.1:8123
+git clone https://github.com/xxx/xxx.git
+git xxx
+git xxx
+git config –global –unset-all http.proxy&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;h3 id=&quot;on-linux&quot;&gt;On Linux&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;httpsgithub.comclowwindyshadowsockswikiConvert-Shadowsocks-into-an-HTTP-proxy&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 04 Jul 2014 20:18:02 +0800</pubDate>
+        <link>http://zhenkeblog.cn/sublime_text/2014/07/04/convert-shadowsocks-into-an-http-proxy/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/sublime_text/2014/07/04/convert-shadowsocks-into-an-http-proxy/</guid>
+      </item>
+    
+      <item>
         <title>Using regular expression in Sublime Text</title>
         <description>&lt;p&gt;Find: CRTL + F &lt;/p&gt;
 
@@ -16,7 +50,7 @@
 
 &lt;p&gt;&lt;a href=&quot;http://sublime-text.readthedocs.org/en/latest/search_and_replace/search_and_replace.html&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 03 Jul 2014 11:18:02 -0400</pubDate>
+        <pubDate>Thu, 03 Jul 2014 23:18:02 +0800</pubDate>
         <link>http://zhenkeblog.cn/sublime_text/2014/07/03/sublime-text-using-regular-expression/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/sublime_text/2014/07/03/sublime-text-using-regular-expression/</guid>
       </item>
@@ -49,7 +83,7 @@
 
 &lt;p&gt;&lt;a href=&quot;http://iphone.tgbus.com&quot;&gt;reference&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 03 Jul 2014 11:18:02 -0400</pubDate>
+        <pubDate>Thu, 03 Jul 2014 23:18:02 +0800</pubDate>
         <link>http://zhenkeblog.cn/ios/2014/07/03/jailbreak-ios-7-1/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/ios/2014/07/03/jailbreak-ios-7-1/</guid>
       </item>
@@ -61,7 +95,7 @@ change &lt;code&gt;received data assumed to be in which charater&lt;/code&gt; to
 
 &lt;p&gt;&lt;a href=&quot;http://putty.ws/putty-uft8&quot;&gt;reference&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 03 Jul 2014 10:48:02 -0400</pubDate>
+        <pubDate>Thu, 03 Jul 2014 22:48:02 +0800</pubDate>
         <link>http://zhenkeblog.cn/jekyll/2014/07/03/make-putty-support-utf-8/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/jekyll/2014/07/03/make-putty-support-utf-8/</guid>
       </item>
@@ -78,7 +112,7 @@ add “blacklist i2c_piix4” to file
 
 &lt;p&gt;&lt;a href=&quot;http://blog.portnumber53.com/2013/08/27/virtualbox-fixing-piix4_smbus-0000-00-07-0-smbus-base-address-uninitialized-upgrade-bios-or-use-force_addr0xaddr/&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Mon, 24 Mar 2014 08:34:00 -0400</pubDate>
+        <pubDate>Mon, 24 Mar 2014 20:34:00 +0800</pubDate>
         <link>http://zhenkeblog.cn/tools/2014/03/24/virtualbox-smbus-error/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/tools/2014/03/24/virtualbox-smbus-error/</guid>
       </item>
@@ -89,7 +123,7 @@ add “blacklist i2c_piix4” to file
 
 &lt;p&gt;可以到这里下载&lt;a href=&quot;http://www.vbox.me&quot;&gt;www.vbox.me&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Mon, 24 Mar 2014 07:45:00 -0400</pubDate>
+        <pubDate>Mon, 24 Mar 2014 19:45:00 +0800</pubDate>
         <link>http://zhenkeblog.cn/tools/2014/03/24/portable-virtualbox/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/tools/2014/03/24/portable-virtualbox/</guid>
       </item>
@@ -106,9 +140,9 @@ add “blacklist i2c_piix4” to file
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tomcat-users&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 </description>
-        <pubDate>Tue, 04 Mar 2014 11:46:00 -0500</pubDate>
-        <link>http://zhenkeblog.cn/javaee/2014/03/04/tomcat-manager-user/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/04/tomcat-manager-user/</guid>
+        <pubDate>Wed, 05 Mar 2014 00:46:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/javaee/2014/03/05/tomcat-manager-user/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/05/tomcat-manager-user/</guid>
       </item>
     
       <item>
@@ -163,9 +197,9 @@ add “blacklist i2c_piix4” to file
 
 &lt;h2 id=&quot;eclipse&quot;&gt;安装Eclipse&lt;/h2&gt;
 </description>
-        <pubDate>Tue, 04 Mar 2014 11:46:00 -0500</pubDate>
-        <link>http://zhenkeblog.cn/javaee/2014/03/04/javaee-develop-environment-setup/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/04/javaee-develop-environment-setup/</guid>
+        <pubDate>Wed, 05 Mar 2014 00:46:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/javaee/2014/03/05/javaee-develop-environment-setup/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/05/javaee-develop-environment-setup/</guid>
       </item>
     
       <item>
@@ -202,7 +236,7 @@ add “blacklist i2c_piix4” to file
 
 &lt;p&gt;&lt;a href=&quot;http://wiki.openwrt.org/doc/howto/generic.backup&quot;&gt;Openwrt wiki generic backup&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Tue, 07 Jan 2014 10:53:00 -0500</pubDate>
+        <pubDate>Tue, 07 Jan 2014 23:53:00 +0800</pubDate>
         <link>http://zhenkeblog.cn/openwrt/2014/01/07/openwrt-in-wr3420/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/openwrt/2014/01/07/openwrt-in-wr3420/</guid>
       </item>
@@ -515,20 +549,9 @@ opkg install aria2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&quot;wikiopenwrtorg&quot;&gt;wiki.openwrt.org打不开&lt;/h3&gt;
 &lt;p&gt;该网站只支持首选语言为英语的浏览器。IE/Firefox/Safari都有解决方法，但是使用Chrome可以直接打开。&lt;/p&gt;
 </description>
-        <pubDate>Fri, 27 Dec 2013 06:20:02 -0500</pubDate>
+        <pubDate>Fri, 27 Dec 2013 19:20:02 +0800</pubDate>
         <link>http://zhenkeblog.cn/openwrt/2013/12/27/openwrt-in-wr703n/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/openwrt/2013/12/27/openwrt-in-wr703n/</guid>
-      </item>
-    
-      <item>
-        <title>It works!</title>
-        <description>&lt;p&gt;It works!!&lt;/p&gt;
-
-&lt;p&gt;jekyll安装成功，开始打造自己的梦幻blog。&lt;/p&gt;
-</description>
-        <pubDate>Fri, 27 Dec 2013 06:20:02 -0500</pubDate>
-        <link>http://zhenkeblog.cn/jekyll/2013/12/27/first-post/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/jekyll/2013/12/27/first-post/</guid>
       </item>
     
   </channel>
