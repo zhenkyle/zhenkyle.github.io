@@ -7,6 +7,44 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Setting proxy for gradle</title>
+        <description>&lt;h3 id=&quot;about-gradle&quot;&gt;About Gradle&lt;/h3&gt;
+&lt;p&gt;Gradle is a build automation tool. It combines the flexibility of &lt;code&gt;Ant&lt;/code&gt; and the convention of &lt;code&gt;Maven&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&quot;http://http://www.gradle.org/&quot;&gt;Gradle Home Page&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;h3 id=&quot;setting-http-proxy-for-gradle-by-command-line&quot;&gt;Setting http proxy for gradle by Command Line&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;gradlew -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8123 build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Works for me.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/5991194/gradle-proxy-configuration&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;setting-http-proxy-for-gradle-by-configure-file&quot;&gt;Setting http proxy for gradle by configure file&lt;/h3&gt;
+
+&lt;p&gt;In your user directory (e.g. c:\users\steve or /users/steve), open the .gradle folder (you may need to enable hidden folders on your file browser). open the gradle.properties file. If it does not exist, create it.&lt;/p&gt;
+
+&lt;p&gt;Add the following lines with the values replaced with the values specific to your proxy:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;systemProp.http.proxyHost=129.0.0.1
+systemProp.http.proxyPort=8123
+systemProp.http.proxyUser=userid
+systemProp.http.proxyPassword=password
+systemProp.http.nonProxyHosts=*.nonproxyrepos.com|localhost
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Untested.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://codetutr.com/2013/03/27/configuring-gradle-behind-a-proxy/&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 28 Aug 2014 23:28:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/proxy/2014/08/28/setting-proxy-for-gradle/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/proxy/2014/08/28/setting-proxy-for-gradle/</guid>
+      </item>
+    
+      <item>
         <title>Enable Jekyll kramdown GFM syntax</title>
         <description>&lt;p&gt;From &lt;a href=&quot;http://jekyllrb.com/docs/configuration/&quot;&gt;jekyll doc&lt;/a&gt;&lt;/p&gt;
 
@@ -42,7 +80,7 @@ gem install bundler&lt;br /&gt;
 wget www.google.com&lt;br /&gt;
 curl www.google.com&lt;/p&gt;
 
-&lt;p&gt;git config –global http.proxy 127.0.0.1:8123&lt;br /&gt;
+&lt;p&gt;git config –global http.proxy://127.0.0.1:8123&lt;br /&gt;
 git clone https://github.com/xxx/xxx.git&lt;br /&gt;
 git xxx&lt;br /&gt;
 git xxx&lt;br /&gt;
@@ -120,11 +158,7 @@ change &lt;code&gt;received data assumed to be in which charater&lt;/code&gt; to
     
       <item>
         <title>Setup ditigal Ocean Host</title>
-        <description>&lt;pre&gt;&lt;code&gt;abc
-abc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;ubuntu-1404-32bit&quot;&gt;1、建立主机 ubuntu 14.04 32bit&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;ubuntu-1404-32bit&quot;&gt;1、建立主机 ubuntu 14.04 32bit&lt;/h3&gt;
 
 &lt;p&gt;将ip地址映射到DNS&lt;/p&gt;
 
@@ -354,63 +388,6 @@ add “blacklist i2c_piix4” to file&lt;br /&gt;
         <pubDate>Wed, 05 Mar 2014 00:46:00 +0800</pubDate>
         <link>http://zhenkeblog.cn/javaee/2014/03/05/tomcat-manager-user/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/05/tomcat-manager-user/</guid>
-      </item>
-    
-      <item>
-        <title>Jave EE 开发环境配置</title>
-        <description>&lt;p&gt;以下步骤是Java EE 开发环境在32位Windows环境中的配置。&lt;/p&gt;
-
-&lt;h2 id=&quot;jdk&quot;&gt;安装JDK&lt;/h2&gt;
-
-&lt;p&gt;到[Oracle网站][http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html]下载 jdk-7u51-windows-i586.exe&lt;/p&gt;
-
-&lt;p&gt;安装&lt;/p&gt;
-
-&lt;p&gt;配置环境变量&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;JAVA_HOME&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:\&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Program&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Java&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jdk1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;0_51&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#JAVA_HOME 代表 JDK安装路径&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;CLASSPATH&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%\lib\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%\lib\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jar&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;PATH&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;中加入&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#这条好像不做也可以&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;tomcat&quot;&gt;安装Tomcat&lt;/h2&gt;
-
-&lt;p&gt;到[Tomcat网站][http://tomcat.apache.org/download-70.cgi] 下载 7.0.52 – Binary Distribution - Core - [32bit Windows zip][http://mirrors.cnnic.cn/apache/tomcat/tomcat-7/v7.0.52/bin/apache-tomcat-7.0.52-windows-x86.zip]&lt;/p&gt;
-
-&lt;p&gt;解压缩到 d:\java_dev\apache-tomcat-7.0.52 中&lt;/p&gt;
-
-&lt;p&gt;配置环境变量&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Tomcat&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;只需要&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;正常设置&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;启动Tomcat&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java_dev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;apache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tomcat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;52&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;startup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bat&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;停止Tomcat&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java_dev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;apache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tomcat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;52&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;shutdown&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bat&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;ant&quot;&gt;安装Ant&lt;/h2&gt;
-
-&lt;p&gt;到[Ant 网站][http://ant.apache.org/bindownload.cgi] 下载[apache-ant-1.9.3-bin.zip][http://apache.fayea.com/apache-mirror//ant/binaries/apache-ant-1.9.3-bin.zip]&lt;/p&gt;
-
-&lt;p&gt;解压缩到 d:\java_dev\apache-ant-1.9.3 中&lt;/p&gt;
-
-&lt;p&gt;配置环境变量&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;ANT_HOME&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java_dev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;apache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ant&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;PATH&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;中加入&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ANT_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;mysql-51&quot;&gt;安装MySQL 5.1或更高版本&lt;/h2&gt;
-&lt;p&gt;此处略&lt;/p&gt;
-
-&lt;h2 id=&quot;eclipse&quot;&gt;安装Eclipse&lt;/h2&gt;
-</description>
-        <pubDate>Wed, 05 Mar 2014 00:46:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/javaee/2014/03/05/javaee-develop-environment-setup/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/05/javaee-develop-environment-setup/</guid>
       </item>
     
   </channel>
