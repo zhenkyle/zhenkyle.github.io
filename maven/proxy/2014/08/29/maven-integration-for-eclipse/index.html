@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Convert shadowsocks into an http proxy</title>
+    <title>Maven Integration for eclipse</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="This my awesome blog.">
-    <link rel="canonical" href="http://zhenkeblog.cn/sublime_text/2014/07/04/convert-shadowsocks-into-an-http-proxy/">
+    <link rel="canonical" href="http://zhenkeblog.cn/maven/proxy/2014/08/29/maven-integration-for-eclipse/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -56,36 +56,31 @@
       <div class="post">
 
   <header class="post-header">
-    <h1>Convert shadowsocks into an http proxy</h1>
-    <p class="meta">Jul 4, 2014</p>
+    <h1>Maven Integration for eclipse</h1>
+    <p class="meta">Aug 29, 2014</p>
   </header>
 
   <article class="post-content">
-  <h3 id="on-windows">On Windows</h3>
+  <h3 id="about-maven-integrationm2e-for-eclipse">About Maven Integration(m2e) for eclipse</h3>
+<p>m2e is the offical , first class Maven plugin for Eclipse IDE.</p>
 
-<p><a href="httpwww.pps.univ-paris-diderot.fr~jchsoftwarefilespolipo">Download polipo for windows</a></p>
+<p><a href="http://www.eclipse.org/m2e/">m2e Home</a></p>
 
-<pre><code>polipo socksParentProxy=localhost:1080
+<h3 id="m2e-not-work-behind-proxy-problem">m2e not work behind proxy problem</h3>
 
-set http_proxy=http127.0.0.1:8123
-</code></pre>
+<p>I’m behind a NTLM proxy, I tried many ways, but I still can’t get m2e load online artifacts catalog files.</p>
 
-<p>Now you can play with http proxy<br />
-```<br />
-gem install bundler<br />
-wget www.google.com<br />
-curl www.google.com</p>
+<p>There is <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=355774">Bug reported by someone earily</a>.</p>
 
-<p>git config –global http.proxy://127.0.0.1:8123<br />
-git clone https://github.com/xxx/xxx.git<br />
-git xxx<br />
-git xxx<br />
-git config –global –unset-all http.proxy</p>
+<h4 id="work-around-1">Work Around 1</h4>
 
-<p>```</p>
+<p>I can use maven command line to generate a maven project, the import the exsiting maven project into Eclipse.</p>
 
-<h3 id="on-linux">On Linux</h3>
-<p><a href="httpsgithub.comclowwindyshadowsockswikiConvert-Shadowsocks-into-an-HTTP-proxy">Reference</a></p>
+<h4 id="work-around-2">Work Around 2</h4>
+
+<p>Use another way, use <code>Maven Eclipse Plugin (m-e-p)</code>. This one is a maven command line plugin, it is not compatible with m2e. Every time you change POM file, you should run this plugin to regenerate eclipse project file.</p>
+
+<p>See <a href="http://maven.apache.org/eclipse-plugin.html">Apache Maven Site</a> for details.</p>
 
   </article>
 

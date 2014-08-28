@@ -7,11 +7,100 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Maven Integration for eclipse</title>
+        <description>&lt;h3 id=&quot;about-maven-integrationm2e-for-eclipse&quot;&gt;About Maven Integration(m2e) for eclipse&lt;/h3&gt;
+&lt;p&gt;m2e is the offical , first class Maven plugin for Eclipse IDE.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.eclipse.org/m2e/&quot;&gt;m2e Home&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;m2e-not-work-behind-proxy-problem&quot;&gt;m2e not work behind proxy problem&lt;/h3&gt;
+
+&lt;p&gt;I’m behind a NTLM proxy, I tried many ways, but I still can’t get m2e load online artifacts catalog files.&lt;/p&gt;
+
+&lt;p&gt;There is &lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=355774&quot;&gt;Bug reported by someone earily&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;work-around-1&quot;&gt;Work Around 1&lt;/h4&gt;
+
+&lt;p&gt;I can use maven command line to generate a maven project, the import the exsiting maven project into Eclipse.&lt;/p&gt;
+
+&lt;h4 id=&quot;work-around-2&quot;&gt;Work Around 2&lt;/h4&gt;
+
+&lt;p&gt;Use another way, use &lt;code&gt;Maven Eclipse Plugin (m-e-p)&lt;/code&gt;. This one is a maven command line plugin, it is not compatible with m2e. Every time you change POM file, you should run this plugin to regenerate eclipse project file.&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&quot;http://maven.apache.org/eclipse-plugin.html&quot;&gt;Apache Maven Site&lt;/a&gt; for details.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 29 Aug 2014 01:27:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/maven/proxy/2014/08/29/maven-integration-for-eclipse/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/maven/proxy/2014/08/29/maven-integration-for-eclipse/</guid>
+      </item>
+    
+      <item>
+        <title>Setting proxy for Maven</title>
+        <description>&lt;h3 id=&quot;about-eclipse&quot;&gt;About Eclipse&lt;/h3&gt;
+&lt;p&gt;Eclipse is a popular java IDE. The most recent vision at this time is &lt;code&gt;Eclipse Luna&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.eclipse.org/&quot;&gt;Eclipse Home&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;setting-httpsocks-proxy-for-eclipse&quot;&gt;Setting http/socks proxy for Eclipse.&lt;/h3&gt;
+
+&lt;p&gt;Goto Menu: Window - Preferences&lt;/p&gt;
+
+&lt;p&gt;Goto General - Network Connections&lt;/p&gt;
+
+&lt;p&gt;Set &lt;code&gt;Active Provider&lt;/code&gt; to &lt;code&gt;Manual&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Set http or socks rows in &lt;code&gt;Proxy entries&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 29 Aug 2014 01:14:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-eclipse/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-eclipse/</guid>
+      </item>
+    
+      <item>
+        <title>Setting proxy for Maven</title>
+        <description>&lt;h3 id=&quot;about-maven&quot;&gt;About Maven&lt;/h3&gt;
+&lt;p&gt;Maven is a software project management and comprehension tool. On the contrary, &lt;code&gt;Ant&lt;/code&gt; is a build tools.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://maven.apache.org/&quot;&gt;Apache Maven Project Home&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://search.maven.org/&quot;&gt;The Maven Central Repository&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;setting-http-proxy-for-maven-command-line&quot;&gt;Setting http proxy for maven command line.&lt;/h3&gt;
+
+&lt;p&gt;In your user directory (e.g. c:\users\steve or /users/steve), open the .m2 folder (you may need to enable hidden folders on your file browser). open the settings.xml file. If it does not exist, create it.&lt;/p&gt;
+
+&lt;p&gt;Add the following lines with the values replaced with the values specific to your proxy:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.1.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd&quot;&amp;gt;
+  &amp;lt;proxies&amp;gt;
+    &amp;lt;proxy&amp;gt;
+      &amp;lt;active&amp;gt;true&amp;lt;/active&amp;gt;
+      &amp;lt;protocol&amp;gt;http&amp;lt;/protocol&amp;gt;
+      &amp;lt;host&amp;gt;127.0.0.1&amp;lt;/host&amp;gt;
+      &amp;lt;port&amp;gt;8123&amp;lt;/port&amp;gt;
+      &amp;lt;username&amp;gt;&amp;lt;/username&amp;gt;
+      &amp;lt;password&amp;gt;&amp;lt;/password&amp;gt;
+      &amp;lt;nonProxyHosts/&amp;gt;
+      &amp;lt;id&amp;gt;1&amp;lt;/id&amp;gt;
+    &amp;lt;/proxy&amp;gt;
+  &amp;lt;/proxies&amp;gt;
+&amp;lt;/settings&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now Maven command line should work with proxy.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 29 Aug 2014 01:03:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-maven/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-maven/</guid>
+      </item>
+    
+      <item>
         <title>Setting proxy for gradle</title>
         <description>&lt;h3 id=&quot;about-gradle&quot;&gt;About Gradle&lt;/h3&gt;
 &lt;p&gt;Gradle is a build automation tool. It combines the flexibility of &lt;code&gt;Ant&lt;/code&gt; and the convention of &lt;code&gt;Maven&lt;/code&gt;. &lt;/p&gt;
 
-&lt;p&gt;See &lt;a href=&quot;http://http://www.gradle.org/&quot;&gt;Gradle Home Page&lt;/a&gt; for details.&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&quot;http://www.gradle.org/&quot;&gt;Gradle Home Page&lt;/a&gt; for details.&lt;/p&gt;
 
 &lt;h3 id=&quot;setting-http-proxy-for-gradle-by-command-line&quot;&gt;Setting http proxy for gradle by Command Line&lt;/h3&gt;
 
@@ -67,11 +156,11 @@ systemProp.http.nonProxyHosts=*.nonproxyrepos.com|localhost
         <title>Convert shadowsocks into an http proxy</title>
         <description>&lt;h3 id=&quot;on-windows&quot;&gt;On Windows&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&quot;httpwww.pps.univ-paris-diderot.fr~jchsoftwarefilespolipo&quot;&gt;Download polipo for windows&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/&quot;&gt;Download polipo for windows&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;polipo socksParentProxy=localhost:1080
 
-set http_proxy=http127.0.0.1:8123
+set http_proxy=http://127.0.0.1:8123
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Now you can play with http proxy&lt;br /&gt;
@@ -80,7 +169,7 @@ gem install bundler&lt;br /&gt;
 wget www.google.com&lt;br /&gt;
 curl www.google.com&lt;/p&gt;
 
-&lt;p&gt;git config –global http.proxy://127.0.0.1:8123&lt;br /&gt;
+&lt;p&gt;git config –global http.proxy 127.0.0.1:8123&lt;br /&gt;
 git clone https://github.com/xxx/xxx.git&lt;br /&gt;
 git xxx&lt;br /&gt;
 git xxx&lt;br /&gt;
@@ -89,11 +178,11 @@ git config –global –unset-all http.proxy&lt;/p&gt;
 &lt;p&gt;```&lt;/p&gt;
 
 &lt;h3 id=&quot;on-linux&quot;&gt;On Linux&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;httpsgithub.comclowwindyshadowsockswikiConvert-Shadowsocks-into-an-HTTP-proxy&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/clowwindy/shadowsocks/wiki/Convert-Shadowsocks-into-an-HTTP-proxy&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 04 Jul 2014 20:18:02 +0800</pubDate>
-        <link>http://zhenkeblog.cn/sublime_text/2014/07/04/convert-shadowsocks-into-an-http-proxy/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/sublime_text/2014/07/04/convert-shadowsocks-into-an-http-proxy/</guid>
+        <link>http://zhenkeblog.cn/proxy/2014/07/04/convert-shadowsocks-into-an-http-proxy/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/proxy/2014/07/04/convert-shadowsocks-into-an-http-proxy/</guid>
       </item>
     
       <item>
@@ -343,51 +432,6 @@ sudo apt-get install oracle-java7-installer
         <pubDate>Thu, 05 Jun 2014 20:18:02 +0800</pubDate>
         <link>http://zhenkeblog.cn/2014/06/05/setup-digital-ocean-host/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/2014/06/05/setup-digital-ocean-host/</guid>
-      </item>
-    
-      <item>
-        <title>VirtualBox SMBus error</title>
-        <description>&lt;p&gt;VirtualBox4.36安装Ubuntu13.10报&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;piix4_smbus&lt;/span&gt; &lt;span class=&quot;mo&quot;&gt;0000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;07&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SMBus&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uninitialized&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;–&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;upgrade&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bios&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;force_addr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0xadd&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;解决办法：&lt;br /&gt;
-add “blacklist i2c_piix4” to file&lt;br /&gt;
-/etc/modprobe.d/modprobe.conf&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://blog.portnumber53.com/2013/08/27/virtualbox-fixing-piix4_smbus-0000-00-07-0-smbus-base-address-uninitialized-upgrade-bios-or-use-force_addr0xaddr/&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 24 Mar 2014 20:34:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/tools/2014/03/24/virtualbox-smbus-error/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/tools/2014/03/24/virtualbox-smbus-error/</guid>
-      </item>
-    
-      <item>
-        <title>Portable VirtualBox</title>
-        <description>&lt;p&gt;Portable VirtualBox 是个很好的绿色VirtualBox ，开源并且免费，现时的最新版本是4.3.6。 （VirtualBox 官方的最新版本是4.3.8，不过不影响使用。）&lt;/p&gt;
-
-&lt;p&gt;可以到这里下载&lt;a href=&quot;http://www.vbox.me&quot;&gt;www.vbox.me&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 24 Mar 2014 19:45:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/tools/2014/03/24/portable-virtualbox/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/tools/2014/03/24/portable-virtualbox/</guid>
-      </item>
-    
-      <item>
-        <title>Tomcat 控制台用户设置</title>
-        <description>&lt;p&gt;登录Tomcat控制台“Manager App”，需要输入用户名、密码&lt;/p&gt;
-
-&lt;p&gt;设置方法如下，编辑conf\tomcat-users.xml&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;tomcat-users&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;role&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rolename=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;manager-gui&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;user&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;username=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tomcat&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;password=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;zhenke1979&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;roles=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;manager-gui&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tomcat-users&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-</description>
-        <pubDate>Wed, 05 Mar 2014 00:46:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/javaee/2014/03/05/tomcat-manager-user/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/javaee/2014/03/05/tomcat-manager-user/</guid>
       </item>
     
   </channel>

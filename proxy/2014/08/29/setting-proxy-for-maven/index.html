@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Setting proxy for gradle</title>
+    <title>Setting proxy for Maven</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="This my awesome blog.">
-    <link rel="canonical" href="http://zhenkeblog.cn/proxy/2014/08/28/setting-proxy-for-gradle/">
+    <link rel="canonical" href="http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-maven/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -56,41 +56,42 @@
       <div class="post">
 
   <header class="post-header">
-    <h1>Setting proxy for gradle</h1>
-    <p class="meta">Aug 28, 2014</p>
+    <h1>Setting proxy for Maven</h1>
+    <p class="meta">Aug 29, 2014</p>
   </header>
 
   <article class="post-content">
-  <h3 id="about-gradle">About Gradle</h3>
-<p>Gradle is a build automation tool. It combines the flexibility of <code>Ant</code> and the convention of <code>Maven</code>. </p>
+  <h3 id="about-maven">About Maven</h3>
+<p>Maven is a software project management and comprehension tool. On the contrary, <code>Ant</code> is a build tools.</p>
 
-<p>See <a href="http://www.gradle.org/">Gradle Home Page</a> for details.</p>
+<p><a href="http://maven.apache.org/">Apache Maven Project Home</a></p>
 
-<h3 id="setting-http-proxy-for-gradle-by-command-line">Setting http proxy for gradle by Command Line</h3>
+<p><a href="http://search.maven.org/">The Maven Central Repository</a></p>
 
-<pre><code>gradlew -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8123 build
-</code></pre>
+<h3 id="setting-http-proxy-for-maven-command-line">Setting http proxy for maven command line.</h3>
 
-<p>Works for me.</p>
-
-<p><a href="http://stackoverflow.com/questions/5991194/gradle-proxy-configuration">Reference</a></p>
-
-<h3 id="setting-http-proxy-for-gradle-by-configure-file">Setting http proxy for gradle by configure file</h3>
-
-<p>In your user directory (e.g. c:\users\steve or /users/steve), open the .gradle folder (you may need to enable hidden folders on your file browser). open the gradle.properties file. If it does not exist, create it.</p>
+<p>In your user directory (e.g. c:\users\steve or /users/steve), open the .m2 folder (you may need to enable hidden folders on your file browser). open the settings.xml file. If it does not exist, create it.</p>
 
 <p>Add the following lines with the values replaced with the values specific to your proxy:</p>
 
-<pre><code>systemProp.http.proxyHost=129.0.0.1
-systemProp.http.proxyPort=8123
-systemProp.http.proxyUser=userid
-systemProp.http.proxyPassword=password
-systemProp.http.nonProxyHosts=*.nonproxyrepos.com|localhost
+<pre><code>&lt;settings xmlns="http://maven.apache.org/SETTINGS/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd"&gt;
+  &lt;proxies&gt;
+    &lt;proxy&gt;
+      &lt;active&gt;true&lt;/active&gt;
+      &lt;protocol&gt;http&lt;/protocol&gt;
+      &lt;host&gt;127.0.0.1&lt;/host&gt;
+      &lt;port&gt;8123&lt;/port&gt;
+      &lt;username&gt;&lt;/username&gt;
+      &lt;password&gt;&lt;/password&gt;
+      &lt;nonProxyHosts/&gt;
+      &lt;id&gt;1&lt;/id&gt;
+    &lt;/proxy&gt;
+  &lt;/proxies&gt;
+&lt;/settings&gt;
 </code></pre>
 
-<p>Untested.</p>
-
-<p><a href="http://codetutr.com/2013/03/27/configuring-gradle-behind-a-proxy/">Reference</a></p>
+<p>Now Maven command line should work with proxy.</p>
 
   </article>
 
