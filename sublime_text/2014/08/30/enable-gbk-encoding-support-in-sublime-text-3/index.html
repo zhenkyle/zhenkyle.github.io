@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Maven Integration for eclipse</title>
+    <title>Enable GBK Encoding support in Sublime Text 3</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="This my awesome blog.">
-    <link rel="canonical" href="http://zhenkeblog.cn/maven/proxy/2014/08/29/maven-integration-for-eclipse/">
+    <link rel="canonical" href="http://zhenkeblog.cn/sublime_text/2014/08/30/enable-gbk-encoding-support-in-sublime-text-3/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -56,34 +56,35 @@
       <div class="post">
 
   <header class="post-header">
-    <h1>Maven Integration for eclipse</h1>
-    <p class="meta">Aug 29, 2014</p>
+    <h1>Enable GBK Encoding support in Sublime Text 3</h1>
+    <p class="meta">Aug 30, 2014</p>
   </header>
 
   <article class="post-content">
-  <h3 id="about-maven-integrationm2e-for-eclipse">About Maven Integration(m2e) for eclipse</h3>
-<p>m2e is the offical , first class Maven plugin for Eclipse IDE.</p>
+  <p>Sublime Text Only support UTF-8. To enable edit GBK files, we need to install Package Control, and ConvertToUTF8 package.</p>
 
-<p><a href="http://www.eclipse.org/m2e/">m2e Home</a></p>
+<h3 id="install-package-control">Install Package Control</h3>
 
-<h3 id="m2e-not-work-behind-proxy-problem">m2e not work behind proxy problem</h3>
+<p>Following Package Control official installtion instructions</p>
 
-<p>I’m behind a NTLM proxy, I tried many ways, but I still can’t get m2e load online artifacts catalog files.</p>
+<p><a href="https://sublime.wbond.net/installation">Package Control INSTALLTION</a></p>
 
-<p>There is <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=355774">Bug reported by someone earily</a>.</p>
+<h3 id="install-converttoutf8-package">Install ConvertToUTF8 package</h3>
 
-<h4 id="work-around-1">Work Around 1</h4>
+<p>open Preferences Menu - Package Control </p>
 
-<p>I can use maven command line to generate a maven project, the import the exsiting maven project into Eclipse.</p>
+<p>goto Install Packages</p>
 
-<h4 id="work-around-2">Work Around 2</h4>
+<p>search for ConverToUTF8</p>
 
-<p>Use another way, use <code>Maven Eclipse Plugin (m-e-p)</code>. This one is a maven command line plugin, it is not compatible with m2e. Every time you change POM file, you should run this plugin to regenerate eclipse project file.</p>
+<p>press return to install</p>
 
-<p>See <a href="http://maven.apache.org/eclipse-plugin.html">Apache Maven Site</a> for details.</p>
+<h3 id="test">Test</h3>
 
-<h3 id="m2e-settings-and-howtos">m2e settings and howtos</h3>
-<p><a href="http://blog.csdn.net/qjyong/article/details/9098213">m2e settings and howtos</a></p>
+<p>Now you can open GBK encoding files, ConverToUTF8 plugin open GBK file, convert it to UTF-8 for editting and convert it back to GBK for save automaticly.</p>
+
+<p><a href="http://aoxuis.me/posts/2013/09/26/sublime-text-3-gb2312-gbk-utf8">Reference</a>
+<a href="http://www.iplaysoft.com/sublimetext.html">Reference</a></p>
 
   </article>
 

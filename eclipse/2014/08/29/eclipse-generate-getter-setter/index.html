@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Maven Integration for eclipse</title>
+    <title>Eclipse Trick: generate getter setter</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="This my awesome blog.">
-    <link rel="canonical" href="http://zhenkeblog.cn/maven/proxy/2014/08/29/maven-integration-for-eclipse/">
+    <link rel="canonical" href="http://zhenkeblog.cn/eclipse/2014/08/29/eclipse-generate-getter-setter/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -56,34 +56,40 @@
       <div class="post">
 
   <header class="post-header">
-    <h1>Maven Integration for eclipse</h1>
+    <h1>Eclipse Trick: generate getter setter</h1>
     <p class="meta">Aug 29, 2014</p>
   </header>
 
   <article class="post-content">
-  <h3 id="about-maven-integrationm2e-for-eclipse">About Maven Integration(m2e) for eclipse</h3>
-<p>m2e is the offical , first class Maven plugin for Eclipse IDE.</p>
+  <p>Convert<br />
+```<br />
+package com.mycompany.app.service;</p>
 
-<p><a href="http://www.eclipse.org/m2e/">m2e Home</a></p>
+<p>public class PersonService {<br />
+  private String name;</p>
 
-<h3 id="m2e-not-work-behind-proxy-problem">m2e not work behind proxy problem</h3>
+<p>}<br />
+```</p>
 
-<p>I’m behind a NTLM proxy, I tried many ways, but I still can’t get m2e load online artifacts catalog files.</p>
+<p>to</p>
 
-<p>There is <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=355774">Bug reported by someone earily</a>.</p>
+<p>```<br />
+package com.mycompany.app.service;</p>
 
-<h4 id="work-around-1">Work Around 1</h4>
+<p>public class PersonService {<br />
+  private String name;</p>
 
-<p>I can use maven command line to generate a maven project, the import the exsiting maven project into Eclipse.</p>
+<p>public String getName() {<br />
+    return this.name;<br />
+  }<br />
+  public void setName(String name) {<br />
+    this.name = name;<br />
+  }<br />
+}```</p>
 
-<h4 id="work-around-2">Work Around 2</h4>
+<p>Go Source Menu - Generate Getter and Setters</p>
 
-<p>Use another way, use <code>Maven Eclipse Plugin (m-e-p)</code>. This one is a maven command line plugin, it is not compatible with m2e. Every time you change POM file, you should run this plugin to regenerate eclipse project file.</p>
-
-<p>See <a href="http://maven.apache.org/eclipse-plugin.html">Apache Maven Site</a> for details.</p>
-
-<h3 id="m2e-settings-and-howtos">m2e settings and howtos</h3>
-<p><a href="http://blog.csdn.net/qjyong/article/details/9098213">m2e settings and howtos</a></p>
+<p><a href="http://blog.csdn.net/maybe_windleave/article/details/8852555">Eclipse用法和技巧六：自动生成get和set方法1</a></p>
 
   </article>
 

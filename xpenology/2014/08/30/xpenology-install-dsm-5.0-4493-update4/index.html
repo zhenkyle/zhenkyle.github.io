@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Maven Integration for eclipse</title>
+    <title>XPEnology NAS install DSM 5.0 4493 Update 4</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="This my awesome blog.">
-    <link rel="canonical" href="http://zhenkeblog.cn/maven/proxy/2014/08/29/maven-integration-for-eclipse/">
+    <link rel="canonical" href="http://zhenkeblog.cn/xpenology/2014/08/30/xpenology-install-dsm-5.0-4493-update4/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -56,34 +56,32 @@
       <div class="post">
 
   <header class="post-header">
-    <h1>Maven Integration for eclipse</h1>
-    <p class="meta">Aug 29, 2014</p>
+    <h1>XPEnology NAS install DSM 5.0 4493 Update 4</h1>
+    <p class="meta">Aug 30, 2014</p>
   </header>
 
   <article class="post-content">
-  <h3 id="about-maven-integrationm2e-for-eclipse">About Maven Integration(m2e) for eclipse</h3>
-<p>m2e is the offical , first class Maven plugin for Eclipse IDE.</p>
+  <p>The same as install 4493 Update 3</p>
 
-<p><a href="http://www.eclipse.org/m2e/">m2e Home</a></p>
+<p>Download update but not install using web UI</p>
 
-<h3 id="m2e-not-work-behind-proxy-problem">m2e not work behind proxy problem</h3>
+<p>ssh to dsm</p>
 
-<p>I’m behind a NTLM proxy, I tried many ways, but I still can’t get m2e load online artifacts catalog files.</p>
+<p><code>sed 's/flashupdateDeb/flashupdateDeb1/' /autoupd@te.info &gt; /autoupd@te.info1</code></p>
 
-<p>There is <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=355774">Bug reported by someone earily</a>.</p>
+<p><code>mv /autoupd@te.info1 /autoupd@te.info</code></p>
 
-<h4 id="work-around-1">Work Around 1</h4>
+<p>Now install update using web UI</p>
 
-<p>I can use maven command line to generate a maven project, the import the exsiting maven project into Eclipse.</p>
+<h3 id="reapply-dnspodcn-patch">Reapply DNSPod.cn patch</h3>
 
-<h4 id="work-around-2">Work Around 2</h4>
+<pre><code>sed -i -re '/\[DNSPod\.cn\]/{n;s@modulepath=.+@modulepath=/sbin/dnspod.sh@}' /etc.defaults/ddns_provider.conf
+sed -i -re '/\[DNSPod\.cn\]/{n;s@modulepath=.+@modulepath=/sbin/dnspod.sh@}' /etc/ddns_provider.conf
+</code></pre>
 
-<p>Use another way, use <code>Maven Eclipse Plugin (m-e-p)</code>. This one is a maven command line plugin, it is not compatible with m2e. Every time you change POM file, you should run this plugin to regenerate eclipse project file.</p>
+<p><code>/sbin/dnspod.sh</code> is my dnspod update shell.</p>
 
-<p>See <a href="http://maven.apache.org/eclipse-plugin.html">Apache Maven Site</a> for details.</p>
-
-<h3 id="m2e-settings-and-howtos">m2e settings and howtos</h3>
-<p><a href="http://blog.csdn.net/qjyong/article/details/9098213">m2e settings and howtos</a></p>
+<p><a href="http://www.xpenology.nl/installatie-dsm-5-0-4493-update-3/">Reference</a></p>
 
   </article>
 
