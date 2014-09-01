@@ -7,6 +7,90 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Install java development enviroment on OSX Mavericks</title>
+        <description>&lt;p&gt;用ant编译时出现“编码 UTF8 的不可映射字符“，这是因为编译的时候编码跟文件存储的编码方式不一样造成的&lt;/p&gt;
+
+&lt;p&gt;用GBK编码的，那么就会出现“编码 UTF8 的不可映射字符“，解决办法：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;javac srcdir=&quot;src&quot; destdir=&quot;build/classes&quot;&amp;gt;
+     &amp;lt;compilerarg line=&quot;-encoding GBK &quot;/&amp;gt;  
+&amp;lt;/javac&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以上语句告诉ant用GBK编码方式编译源文件&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/seeds_home/article/details/7327728&quot;&gt;来源&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 31 Aug 2014 18:34:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/java/2014/08/31/javac-utf8-error-solution/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/java/2014/08/31/javac-utf8-error-solution/</guid>
+      </item>
+    
+      <item>
+        <title>Install java development enviroment on OSX Mavericks</title>
+        <description>&lt;h3 id=&quot;install-jdk-8u20-by-hand&quot;&gt;Install jdk 8u20 by hand&lt;/h3&gt;
+&lt;p&gt;Mac OSX 10.6 and before shipped with Java 6, OSX 10.7 and above doesn’t shiped with Java.When execute &lt;code&gt;java -version&lt;/code&gt;&lt;br /&gt;
+command in Mavericks Terminal, a window popup, inform you that JDK is not installed , click on the “more information” &lt;br /&gt;
+button, will take you to the Oarcle site to download the most current jdk package. The most current jdk version is &lt;code&gt;8u20&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.java.com/en/download/faq/java_mac.xml&quot;&gt;Reference: Orcale java mac FAQ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://osxdaily.com/2013/11/01/install-java-os-x-mavericks/&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;install-jdk-6-from-apple&quot;&gt;Install jdk 6 from Apple&lt;/h3&gt;
+
+&lt;p&gt;Mavericks doesn’t shipped with jdk 6. But jdk 6 can be obtained from Apple’s site. The most current jdk 6 version &lt;br /&gt;
+from Apple is &lt;code&gt;Java for OS X 2014-001&lt;/code&gt; .Here is Download link.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://support.apple.com/kb/DL1572&quot;&gt;Java 6 for OSX by Apple&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;recommend-way-to-install-jdk-and-other-develop-tools&quot;&gt;Recommend way to install jdk and other develop tools&lt;/h3&gt;
+
+&lt;p&gt;The recommend way to install jdk and other develop tools is by &lt;a href=&quot;http://brew.sh/&quot;&gt;home brew&lt;/a&gt;.&lt;br /&gt;
+We like package management.&lt;/p&gt;
+
+&lt;p&gt;First, install Homebrew.
+&lt;code&gt;
+ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Second, install &lt;a href=&quot;http://caskroom.io/&quot;&gt;Homebrew Cask&lt;/a&gt;
+&lt;code&gt;
+brew install caskroom/cask/brew-cask
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then,  install java with the most current version (8u20 at this time)
+&lt;code&gt;
+brew cask install java
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;install-other-things&quot;&gt;Install other things&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;brew install ant
+brew install maven
+brew install gradle
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://derjan.io/blog/2013/11/25/setup-mac-for-development/&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://ksmx.me/homebrew-cask-cli-workflow-to-install-mac-applications/&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/homebrew-cask.html&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.google.com.hk/search?q=home+brew+cask&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;if-need-to-install-multiple-java-version&quot;&gt;If need to install multiple java version&lt;/h3&gt;
+&lt;p&gt;use jenv&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://hanxue-it.blogspot.com/2014/05/installing-java-8-managing-multiple.html&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://meng6.net/pages/computing/installing_and_configuring/installing_and_configuring_java_on_mac/#.VAK7r7ySymN&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 31 Aug 2014 18:34:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/java/2014/08/31/install-java-development-enviroment-on-osx-mavervicks/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/java/2014/08/31/install-java-development-enviroment-on-osx-mavervicks/</guid>
+      </item>
+    
+      <item>
         <title>XPEnology NAS install DSM 5.0 4493 Update 4</title>
         <description>&lt;p&gt;The same as install 4493 Update 3&lt;/p&gt;
 
@@ -251,54 +335,6 @@ systemProp.http.nonProxyHosts=*.nonproxyrepos.com|localhost
         <pubDate>Sat, 05 Jul 2014 02:05:02 +0800</pubDate>
         <link>http://zhenkeblog.cn/2014/07/05/enable-kramdown-GFM-syntax/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/2014/07/05/enable-kramdown-GFM-syntax/</guid>
-      </item>
-    
-      <item>
-        <title>Convert shadowsocks into an http proxy</title>
-        <description>&lt;h3 id=&quot;on-windows&quot;&gt;On Windows&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/&quot;&gt;Download polipo for windows&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;polipo socksParentProxy=localhost:1080
-
-set http_proxy=http://127.0.0.1:8123
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now you can play with http proxy&lt;br /&gt;
-```&lt;br /&gt;
-gem install bundler&lt;br /&gt;
-wget www.google.com&lt;br /&gt;
-curl www.google.com&lt;/p&gt;
-
-&lt;p&gt;git config –global http.proxy 127.0.0.1:8123&lt;br /&gt;
-git clone https://github.com/xxx/xxx.git&lt;br /&gt;
-git xxx&lt;br /&gt;
-git xxx&lt;br /&gt;
-git config –global –unset-all http.proxy&lt;/p&gt;
-
-&lt;p&gt;```&lt;/p&gt;
-
-&lt;h3 id=&quot;on-linux&quot;&gt;On Linux&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/clowwindy/shadowsocks/wiki/Convert-Shadowsocks-into-an-HTTP-proxy&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Fri, 04 Jul 2014 20:18:02 +0800</pubDate>
-        <link>http://zhenkeblog.cn/proxy/2014/07/04/convert-shadowsocks-into-an-http-proxy/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/proxy/2014/07/04/convert-shadowsocks-into-an-http-proxy/</guid>
-      </item>
-    
-      <item>
-        <title>Using regular expression in Sublime Text</title>
-        <description>&lt;p&gt;Find: CRTL + F &lt;/p&gt;
-
-&lt;p&gt;Replace: CRTL + H&lt;/p&gt;
-
-&lt;p&gt;Use ALT + R to toggle Regular expression&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://sublime-text.readthedocs.org/en/latest/search_and_replace/search_and_replace.html&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 03 Jul 2014 23:18:02 +0800</pubDate>
-        <link>http://zhenkeblog.cn/sublime_text/2014/07/03/sublime-text-using-regular-expression/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/sublime_text/2014/07/03/sublime-text-using-regular-expression/</guid>
       </item>
     
   </channel>
