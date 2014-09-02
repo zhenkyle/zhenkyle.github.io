@@ -7,7 +7,7 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Install java development enviroment on OSX Mavericks</title>
+        <title>Javac “编码 UTF8 的不可映射字符“ error solution</title>
         <description>&lt;p&gt;用ant编译时出现“编码 UTF8 的不可映射字符“，这是因为编译的时候编码跟文件存储的编码方式不一样造成的&lt;/p&gt;
 
 &lt;p&gt;用GBK编码的，那么就会出现“编码 UTF8 的不可映射字符“，解决办法：  &lt;/p&gt;
