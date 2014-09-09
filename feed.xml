@@ -220,7 +220,7 @@ package com.mycompany.app.service;&lt;/p&gt;
       </item>
     
       <item>
-        <title>Setting proxy for Maven</title>
+        <title>Setting proxy for Eclipse</title>
         <description>&lt;h3 id=&quot;about-eclipse&quot;&gt;About Eclipse&lt;/h3&gt;
 &lt;p&gt;Eclipse is a popular java IDE. The most recent vision at this time is &lt;code&gt;Eclipse Luna&lt;/code&gt;.&lt;/p&gt;
 

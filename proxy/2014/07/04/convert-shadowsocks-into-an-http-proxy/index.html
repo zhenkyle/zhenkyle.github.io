@@ -80,12 +80,24 @@ curl www.google.com</p>
 git clone https://github.com/xxx/xxx.git<br />
 git xxx<br />
 git xxx<br />
-git config –global –unset-all http.proxy</p>
-
-<p>```</p>
+git config –global –unset-all http.proxy<br />
+```</p>
 
 <h3 id="on-linux">On Linux</h3>
 <p><a href="https://github.com/clowwindy/shadowsocks/wiki/Convert-Shadowsocks-into-an-HTTP-proxy">Reference</a></p>
+
+<h3 id="on-osx">On OSX</h3>
+<p>Recommend way to install polipo is via brew.</p>
+
+<p>When install complete, start polipo</p>
+
+<pre><code>polipo socksParentProxy=localhost:1080
+</code></pre>
+
+<p>Then you can use http_proxy with brew, by set http_proxy enviroment variable or just type:</p>
+
+<pre><code>http_proxy=http://127.0.0.1:8123 brew install xxxpackage
+</code></pre>
 
   </article>
 
