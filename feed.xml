@@ -7,6 +7,65 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Mysql 在Windows 下中文显示问号问题</title>
+        <description>&lt;p&gt;Mysql 5.6, 通过Chacolatey安装,在Windows下mysql 命令和Mysql Workbench中文显示乱码&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;问题原因&lt;/h3&gt;
+&lt;p&gt;Mysql 在window下安装后，确实字符集是latin1，这样处理utf8和gbk都有问题，需要改。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;解决办法&lt;/h3&gt;
+
+&lt;p&gt;在&lt;code&gt;C:\tools\mysql\current\my.ini&lt;/code&gt;文件，加入：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[mysqld]
+character_set_server=utf8
+
+[client]
+default-character-set=utf8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后重启mysqld&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;net stop mysqld
+net start mysqld
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;测试&lt;/h3&gt;
+
+&lt;p&gt;分别进入mysql 和 mysql workbench&lt;/p&gt;
+
+&lt;p&gt;看所有字符集&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;show character set;
+或
+show char set;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;看当前&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;status 或 /s (mysql下)
+或
+show variables like &#39;%char%&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;看库
+&lt;code&gt;
+show create database dbname;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;看表
+&lt;code&gt;
+show create table tblname /G;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/dreamthen/article/details/38297003&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 25 Sep 2014 09:18:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/2014/09/25/windows-mysql-encoding-problem/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/2014/09/25/windows-mysql-encoding-problem/</guid>
+      </item>
+    
+      <item>
         <title>Chocolatey: a windows package manager</title>
         <description>&lt;p&gt;Package manager is very popular in Linux/Opensource community. And there are package managers like &lt;code&gt;Home brew&lt;/code&gt; or 
 &lt;code&gt;macport&lt;/code&gt; under OSX. It is not very common in windows to have a command line package manager, you are in pain if&lt;br /&gt;
@@ -293,44 +352,6 @@ package com.mycompany.app.service;&lt;/p&gt;
         <pubDate>Fri, 29 Aug 2014 01:03:00 +0800</pubDate>
         <link>http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-maven/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-maven/</guid>
-      </item>
-    
-      <item>
-        <title>Setting proxy for gradle</title>
-        <description>&lt;h3 id=&quot;about-gradle&quot;&gt;About Gradle&lt;/h3&gt;
-&lt;p&gt;Gradle is a build automation tool. It combines the flexibility of &lt;code&gt;Ant&lt;/code&gt; and the convention of &lt;code&gt;Maven&lt;/code&gt;. &lt;/p&gt;
-
-&lt;p&gt;See &lt;a href=&quot;http://www.gradle.org/&quot;&gt;Gradle Home Page&lt;/a&gt; for details.&lt;/p&gt;
-
-&lt;h3 id=&quot;setting-http-proxy-for-gradle-by-command-line&quot;&gt;Setting http proxy for gradle by Command Line&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;gradlew -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8123 build
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Works for me.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/5991194/gradle-proxy-configuration&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;setting-http-proxy-for-gradle-by-configure-file&quot;&gt;Setting http proxy for gradle by configure file&lt;/h3&gt;
-
-&lt;p&gt;In your user directory (e.g. c:\users\steve or /users/steve), open the .gradle folder (you may need to enable hidden folders on your file browser). open the gradle.properties file. If it does not exist, create it.&lt;/p&gt;
-
-&lt;p&gt;Add the following lines with the values replaced with the values specific to your proxy:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;systemProp.http.proxyHost=129.0.0.1
-systemProp.http.proxyPort=8123
-systemProp.http.proxyUser=userid
-systemProp.http.proxyPassword=password
-systemProp.http.nonProxyHosts=*.nonproxyrepos.com|localhost
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Untested.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://codetutr.com/2013/03/27/configuring-gradle-behind-a-proxy/&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 28 Aug 2014 23:28:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/proxy/2014/08/28/setting-proxy-for-gradle/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/proxy/2014/08/28/setting-proxy-for-gradle/</guid>
       </item>
     
   </channel>
