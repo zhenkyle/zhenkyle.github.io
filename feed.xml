@@ -7,6 +7,21 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Chocolatey: a windows package manager</title>
+        <description>&lt;p&gt;Package manager is very popular in Linux/Opensource community. And there are package managers like &lt;code&gt;Home brew&lt;/code&gt; or 
+&lt;code&gt;macport&lt;/code&gt; under OSX. It is not very common in windows to have a command line package manager, you are in pain if&lt;br /&gt;
+you want to install a lot of software. Chocolatey comes to rescue.&lt;/p&gt;
+
+&lt;p&gt;The installation is easy, it has a thousands of packages, you can install by command.&lt;/p&gt;
+
+&lt;p&gt;Check &lt;a href=&quot;http://chocolatey.org&quot;&gt;chocolatey.org&lt;/a&gt; for detail.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 10 Sep 2014 14:11:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/2014/09/10/chocolatey-a-windows-package-manager/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/2014/09/10/chocolatey-a-windows-package-manager/</guid>
+      </item>
+    
+      <item>
         <title>Javac “编码 UTF8 的不可映射字符“ error solution</title>
         <description>&lt;p&gt;用ant编译时出现“编码 UTF8 的不可映射字符“，这是因为编译的时候编码跟文件存储的编码方式不一样造成的&lt;/p&gt;
 
@@ -316,25 +331,6 @@ systemProp.http.nonProxyHosts=*.nonproxyrepos.com|localhost
         <pubDate>Thu, 28 Aug 2014 23:28:00 +0800</pubDate>
         <link>http://zhenkeblog.cn/proxy/2014/08/28/setting-proxy-for-gradle/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/proxy/2014/08/28/setting-proxy-for-gradle/</guid>
-      </item>
-    
-      <item>
-        <title>Enable Jekyll kramdown GFM syntax</title>
-        <description>&lt;p&gt;From &lt;a href=&quot;http://jekyllrb.com/docs/configuration/&quot;&gt;jekyll doc&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;kramdown&quot;&gt;Kramdown&lt;/h3&gt;
-
-&lt;p&gt;In addition to the defaults mentioned above, you can also turn on recognition of Github Flavored Markdown by passing an &lt;code&gt;input&lt;/code&gt; option with a value of “GFM”.&lt;/p&gt;
-
-&lt;p&gt;For example, in your &lt;code&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kramdown:
-  input: GFM
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Sat, 05 Jul 2014 02:05:02 +0800</pubDate>
-        <link>http://zhenkeblog.cn/2014/07/05/enable-kramdown-GFM-syntax/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/2014/07/05/enable-kramdown-GFM-syntax/</guid>
       </item>
     
   </channel>
