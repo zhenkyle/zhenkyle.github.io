@@ -7,6 +7,77 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Struts Hibernate Spring 巧妙注入</title>
+        <description>&lt;h3 id=&quot;struts-action--service&quot;&gt;Struts Action 注入 Service的传统方式&lt;/h3&gt;
+
+&lt;p&gt;在&lt;code&gt;struts.xml&lt;/code&gt;中&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;		&amp;lt;!-- 门店列表Action --&amp;gt;
+		&amp;lt;action name=&quot;shopList&quot; class=&quot;ShopManagerAction&quot; method=&quot;shopList&quot;&amp;gt;
+			&amp;lt;result name=&quot;success&quot;&amp;gt;/pages/shop/shopList.jsp&amp;lt;/result&amp;gt;
+		&amp;lt;/action&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在 spring 的 &lt;code&gt;applicationContext.xml&lt;/code&gt;中&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;	&amp;lt;!-- 门店Action注入 --&amp;gt;
+	&amp;lt;bean id=&quot;shopManagerAction&quot;
+		class=&quot;com.company.mis.system.action.order.ShopManagerAction&quot; scope=&quot;prototype&quot;&amp;gt;
+		&amp;lt;property name=&quot;shopService&quot; ref=&quot;shopService&quot; /&amp;gt;
+	&amp;lt;/bean&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;struts-action--service-1&quot;&gt;Struts Action 注入 Service的自动方式&lt;/h3&gt;
+
+&lt;p&gt;在&lt;code&gt;struts.xml&lt;/code&gt;中 写全限定的类名&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;		&amp;lt;!-- 门店列表Action --&amp;gt;
+		&amp;lt;action name=&quot;shopList&quot; class=&quot;com.company.mis.system.action.shop.ShopManagerAction&quot; method=&quot;shopList&quot;&amp;gt;
+			&amp;lt;result name=&quot;success&quot;&amp;gt;/pages/shop/shopList.jsp&amp;lt;/result&amp;gt;
+		&amp;lt;/action&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在 spring 的 &lt;code&gt;applicationContext.xml&lt;/code&gt;中&lt;/p&gt;
+
+&lt;p&gt;不需要再定义&lt;code&gt;shoManagerAction&lt;/code&gt;了,会自动注入&lt;code&gt;shopService&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;service--dao-&quot;&gt;Service 注入 DAO 的传统方式&lt;/h3&gt;
+
+&lt;p&gt;在spring 的 &lt;code&gt;applicationContext.xml&lt;/code&gt;中&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;	&amp;lt;!-- 门店Service --&amp;gt;
+	&amp;lt;bean id=&quot;shopService&quot;
+		class=&quot;com.company.mis.system.service.impl.ShopServiceImpl&quot;&amp;gt;
+		&amp;lt;property name=&quot;shopDao&quot; ref=&quot;shopDao&quot; /&amp;gt;
+	&amp;lt;/bean&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;service--dao--1&quot;&gt;Service 注入 DAO 的自动方式&lt;/h3&gt;
+
+&lt;p&gt;在spring 的 &lt;code&gt;applicationContext.xml&lt;/code&gt;中，首先定义&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;	&amp;lt;!-- 定义业务逻辑组件模板 --&amp;gt;
+	&amp;lt;!-- 为之注入DAO组件 --&amp;gt;
+	&amp;lt;bean id=&quot;myTemplate&quot; abstract=&quot;true&quot; lazy-init=&quot;true&quot;
+		p:shopDao-ref=&quot;shopDao&quot;
+		p:purviewDao-ref=&quot;orderDao&quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后再定义&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;	&amp;lt;!-- 定义我的逻辑组件，继承业务逻辑组件的模板 --&amp;gt;
+	&amp;lt;bean id=&quot;shopService&quot;
+		class=&quot;com.company.mis.system.service.impl.ShopServiceImpl&quot; 
+		parent=&quot;myTemplate&quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;就不用定义具体的注入了&lt;/p&gt;
+</description>
+        <pubDate>Fri, 26 Sep 2014 14:11:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/2014/09/26/struts-hibernate-spring-injection-trick/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/2014/09/26/struts-hibernate-spring-injection-trick/</guid>
+      </item>
+    
+      <item>
         <title>Mysql 在Windows 下中文显示问号问题</title>
         <description>&lt;p&gt;Mysql 5.6, 通过Chacolatey安装,在Windows下mysql 命令和Mysql Workbench中文显示乱码&lt;/p&gt;
 
@@ -313,45 +384,6 @@ package com.mycompany.app.service;&lt;/p&gt;
         <pubDate>Fri, 29 Aug 2014 01:14:00 +0800</pubDate>
         <link>http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-eclipse/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-eclipse/</guid>
-      </item>
-    
-      <item>
-        <title>Setting proxy for Maven</title>
-        <description>&lt;h3 id=&quot;about-maven&quot;&gt;About Maven&lt;/h3&gt;
-&lt;p&gt;Maven is a software project management and comprehension tool with dependency management. On the contrary, &lt;code&gt;Ant&lt;/code&gt; is a build tools.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://maven.apache.org/&quot;&gt;Apache Maven Project Home&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://search.maven.org/&quot;&gt;The Maven Central Repository&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;setting-http-proxy-for-maven-command-line&quot;&gt;Setting http proxy for maven command line.&lt;/h3&gt;
-
-&lt;p&gt;In your user directory (e.g. c:\users\steve or /users/steve), open the .m2 folder (you may need to enable hidden folders on your file browser). open the settings.xml file. If it does not exist, create it.&lt;/p&gt;
-
-&lt;p&gt;Add the following lines with the values replaced with the values specific to your proxy:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.1.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd&quot;&amp;gt;
-  &amp;lt;proxies&amp;gt;
-    &amp;lt;proxy&amp;gt;
-      &amp;lt;active&amp;gt;true&amp;lt;/active&amp;gt;
-      &amp;lt;protocol&amp;gt;http&amp;lt;/protocol&amp;gt;
-      &amp;lt;host&amp;gt;127.0.0.1&amp;lt;/host&amp;gt;
-      &amp;lt;port&amp;gt;8123&amp;lt;/port&amp;gt;
-      &amp;lt;username&amp;gt;&amp;lt;/username&amp;gt;
-      &amp;lt;password&amp;gt;&amp;lt;/password&amp;gt;
-      &amp;lt;nonProxyHosts/&amp;gt;
-      &amp;lt;id&amp;gt;1&amp;lt;/id&amp;gt;
-    &amp;lt;/proxy&amp;gt;
-  &amp;lt;/proxies&amp;gt;
-&amp;lt;/settings&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now Maven command line should work with proxy.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 29 Aug 2014 01:03:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-maven/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-maven/</guid>
       </item>
     
   </channel>
