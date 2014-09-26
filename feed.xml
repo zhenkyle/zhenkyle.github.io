@@ -7,6 +7,282 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Struts 传递 model 到 view</title>
+        <description>&lt;h3 id=&quot;struts--action--view--model--model&quot;&gt;Struts 在 action 和 view 传递 model 的传统方式： 传model的每一个属性&lt;/h3&gt;
+
+&lt;p&gt;把model中的每一个属性传递到view, 以下是一个例子&lt;/p&gt;
+
+&lt;p&gt;在&lt;code&gt;struts.xml&lt;/code&gt;中&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;		&amp;lt;action name=&quot;forwardToAddShop&quot; class=&quot;com.company.mis.system.action.shop.ShopManagerAction&quot;
+			method=&quot;forwardToAddShop&quot;&amp;gt;
+			&amp;lt;result name=&quot;success&quot;&amp;gt;/pages/shop/addShop.jsp&amp;lt;/result&amp;gt;
+		&amp;lt;/action&amp;gt;
+		&amp;lt;action name=&quot;addShop&quot; class=&quot;com.company.mis.system.action.shop.ShopManagerAction&quot; method=&quot;addShop&quot;&amp;gt;
+			&amp;lt;result name=&quot;success&quot; type=&quot;chain&quot;&amp;gt;
+				&amp;lt;param name=&quot;actionName&quot;&amp;gt;confirm&amp;lt;/param&amp;gt;
+				&amp;lt;param name=&quot;namespace&quot;&amp;gt;/&amp;lt;/param&amp;gt;
+			&amp;lt;/result&amp;gt;
+		&amp;lt;/action&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ShopmanagerAction.java&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class ShopManagerAction extends ActionSupport {
+	// 注入接口属性
+	private ShopService shopService;
+	// 门店名称
+	private String shopName;
+	// 地址
+	private String address;
+	// 邮编
+	private String zipCode;
+	// 电话
+	private String telNumber;
+	
+		public void setShopService(ShopService shopService) {
+		this.shopService = shopService;
+	}
+
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+
+	public void setTelNumber(String telNumber) {
+		this.telNumber = telNumber;
+	}
+
+	/**
+	 * 跳转到添加门店界面
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String forwardToAddShop() throws Exception {
+		return SUCCESS;
+	}
+
+	/**
+	 * 添加门店
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String addShop() throws Exception {
+    
+    	Shop shop = new Shop();
+		shop.setShopName(shopName);
+		shop.setAddress(address);
+		shop.setZipCode(zipCode);
+		shop.setTelNumber(telNumber);
+	
+		boolean result = shopService.addShop(shop);
+		Confirm confirm = new Confirm();
+		if (result) {
+			confirm.setIsSuccess(&quot;right&quot;);
+			confirm.setMessage(&quot;门店添加成功&quot;);
+			confirm.setUrl(&quot;shopList.action&quot;);
+			confirm.setRetName(&quot;门店列表&quot;);
+		} else {
+			confirm.setIsSuccess(&quot;error&quot;);
+			confirm.setMessage(&quot;门店添加失败&quot;);
+			confirm.setUrl(&quot;shopList.action&quot;);
+			confirm.setRetName(&quot;门店列表&quot;);
+		}
+		ActionContext.getContext().put(&quot;confirm&quot;, confirm);
+		return SUCCESS;
+	}
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;/pages/shop/addShop.jsp&lt;/code&gt;中&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;		&amp;lt;form id=&quot;myForm&quot; action=&quot;addShop.action&quot; method=&quot;post&quot;&amp;gt;
+					&amp;lt;table&amp;gt;
+						&amp;lt;tr&amp;gt;
+							&amp;lt;td&amp;gt;
+								门店名称：
+							&amp;lt;/td&amp;gt;
+							&amp;lt;td&amp;gt;
+								&amp;lt;input type=&quot;text&quot; name=&quot;shopName&quot; /&amp;gt;
+							&amp;lt;/td&amp;gt;
+						&amp;lt;/tr&amp;gt;
+						&amp;lt;tr&amp;gt;
+							&amp;lt;td &amp;gt;
+								地址：
+							&amp;lt;/td&amp;gt;
+							&amp;lt;td &amp;gt;
+								&amp;lt;input type=&quot;text&quot; name=&quot;address&quot; /&amp;gt;
+							&amp;lt;/td&amp;gt;
+						&amp;lt;/tr&amp;gt;
+						&amp;lt;tr&amp;gt;
+							&amp;lt;td &amp;gt;
+								邮编：
+							&amp;lt;/td&amp;gt;
+							&amp;lt;td &amp;gt;
+								&amp;lt;input type=&quot;text&quot; name=&quot;zipCode&quot; /&amp;gt;
+							&amp;lt;/td&amp;gt;
+						&amp;lt;/tr&amp;gt;
+						&amp;lt;tr&amp;gt;
+							&amp;lt;td&amp;gt;
+								电话：
+							&amp;lt;/td&amp;gt;
+							&amp;lt;td&amp;gt;
+								&amp;lt;input type=&quot;text&quot; name=&quot;telNumber&quot; /&amp;gt;
+							&amp;lt;/td&amp;gt;
+						&amp;lt;/tr&amp;gt;
+						&amp;lt;tr&amp;gt;
+							&amp;lt;td colspan=&quot;2&quot; &amp;gt;
+								&amp;lt;input type=&quot;submit&quot; name=&quot;保存&quot; /&amp;gt;
+								&amp;lt;input type=&quot;reset&quot; name=&quot;重置&quot; /&amp;gt;
+							&amp;lt;/td&amp;gt;
+						&amp;lt;/tr&amp;gt;
+					&amp;lt;/table&amp;gt;			
+		&amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;struts--action--view--model&quot;&gt;改进为 Struts 在 action 和 view 直接传递 model&lt;/h3&gt;
+
+&lt;p&gt;在&lt;code&gt;struts.xml&lt;/code&gt;中&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;		&amp;lt;action name=&quot;forwardToAddShop&quot; class=&quot;com.company.mis.system.action.shop.ShopManagerAction&quot;
+			method=&quot;forwardToAddShop&quot;&amp;gt;
+			&amp;lt;result name=&quot;success&quot;&amp;gt;/pages/shop/addShop.jsp&amp;lt;/result&amp;gt;
+		&amp;lt;/action&amp;gt;
+		&amp;lt;action name=&quot;addShop&quot; class=&quot;com.company.mis.system.action.shop.ShopManagerAction&quot; method=&quot;addShop&quot;&amp;gt;
+			&amp;lt;result name=&quot;success&quot; type=&quot;chain&quot;&amp;gt;
+				&amp;lt;param name=&quot;actionName&quot;&amp;gt;confirm&amp;lt;/param&amp;gt;
+				&amp;lt;param name=&quot;namespace&quot;&amp;gt;/&amp;lt;/param&amp;gt;
+			&amp;lt;/result&amp;gt;
+		&amp;lt;/action&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ShopmanagerAction.java&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class ShopManagerAction extends ActionSupport {
+	// 注入接口属性
+	private ShopService shopService;
+
+	// Model PO对象
+	private Shop shop;
+
+	public void setShopService(ShopService shopService) {
+		this.shopService = shopService;
+	}
+
+	// 往view传递时用
+	public Shop getShop() {
+		return shop;
+	}
+
+	// 从view获取时用
+	public void setShop(Shop shop) {
+		this.shop = shop;
+	}
+
+
+	/**
+	 * 跳转到添加门店界面
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String forwardToAddShop() throws Exception {
+		return SUCCESS;
+	}
+
+	/**
+	 * 添加门店
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String addShop() throws Exception {
+    
+    	// 这里已经自动从view获得shop值了,简化了不少
+
+		boolean result = shopService.addShop(shop);
+		Confirm confirm = new Confirm();
+		if (result) {
+			confirm.setIsSuccess(&quot;right&quot;);
+			confirm.setMessage(&quot;门店添加成功&quot;);
+			confirm.setUrl(&quot;shopList.action&quot;);
+			confirm.setRetName(&quot;门店列表&quot;);
+		} else {
+			confirm.setIsSuccess(&quot;error&quot;);
+			confirm.setMessage(&quot;门店添加失败&quot;);
+			confirm.setUrl(&quot;shopList.action&quot;);
+			confirm.setRetName(&quot;门店列表&quot;);
+		}
+		ActionContext.getContext().put(&quot;confirm&quot;, confirm);
+		return SUCCESS;
+	}
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;/pages/shop/addShop.jsp&lt;/code&gt;中&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;		&amp;lt;form id=&quot;myForm&quot; action=&quot;addShop.action&quot; method=&quot;post&quot;&amp;gt;
+					&amp;lt;table&amp;gt;
+						&amp;lt;tr&amp;gt;
+							&amp;lt;td&amp;gt;
+								门店名称：
+							&amp;lt;/td&amp;gt;
+							&amp;lt;td&amp;gt;
+								&amp;lt;input type=&quot;text&quot; name=&quot;shop.shopName&quot; /&amp;gt;
+							&amp;lt;/td&amp;gt;
+						&amp;lt;/tr&amp;gt;
+						&amp;lt;tr&amp;gt;
+							&amp;lt;td &amp;gt;
+								地址：
+							&amp;lt;/td&amp;gt;
+							&amp;lt;td &amp;gt;
+								&amp;lt;input type=&quot;text&quot; name=&quot;shop.address&quot; /&amp;gt;
+							&amp;lt;/td&amp;gt;
+						&amp;lt;/tr&amp;gt;
+						&amp;lt;tr&amp;gt;
+							&amp;lt;td &amp;gt;
+								邮编：
+							&amp;lt;/td&amp;gt;
+							&amp;lt;td &amp;gt;
+								&amp;lt;input type=&quot;text&quot; name=&quot;shop.zipCode&quot; /&amp;gt;
+							&amp;lt;/td&amp;gt;
+						&amp;lt;/tr&amp;gt;
+						&amp;lt;tr&amp;gt;
+							&amp;lt;td&amp;gt;
+								电话：
+							&amp;lt;/td&amp;gt;
+							&amp;lt;td&amp;gt;
+								&amp;lt;input type=&quot;text&quot; name=&quot;shop.telNumber&quot; /&amp;gt;
+							&amp;lt;/td&amp;gt;
+						&amp;lt;/tr&amp;gt;
+						&amp;lt;tr&amp;gt;
+							&amp;lt;td colspan=&quot;2&quot; &amp;gt;
+								&amp;lt;input type=&quot;submit&quot; name=&quot;保存&quot; /&amp;gt;
+								&amp;lt;input type=&quot;reset&quot; name=&quot;重置&quot; /&amp;gt;
+							&amp;lt;/td&amp;gt;
+						&amp;lt;/tr&amp;gt;
+					&amp;lt;/table&amp;gt;			
+		&amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+</description>
+        <pubDate>Fri, 26 Sep 2014 15:41:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/2014/09/26/struts-action-pass-model-to-view/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/2014/09/26/struts-action-pass-model-to-view/</guid>
+      </item>
+    
+      <item>
         <title>Struts Hibernate Spring 巧妙注入</title>
         <description>&lt;h3 id=&quot;struts-action--service&quot;&gt;Struts Action 注入 Service的传统方式&lt;/h3&gt;
 
@@ -362,28 +638,6 @@ package com.mycompany.app.service;&lt;/p&gt;
         <pubDate>Fri, 29 Aug 2014 01:27:00 +0800</pubDate>
         <link>http://zhenkeblog.cn/maven/proxy/2014/08/29/maven-integration-for-eclipse/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/maven/proxy/2014/08/29/maven-integration-for-eclipse/</guid>
-      </item>
-    
-      <item>
-        <title>Setting proxy for Eclipse</title>
-        <description>&lt;h3 id=&quot;about-eclipse&quot;&gt;About Eclipse&lt;/h3&gt;
-&lt;p&gt;Eclipse is a popular java IDE. The most recent vision at this time is &lt;code&gt;Eclipse Luna&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.eclipse.org/&quot;&gt;Eclipse Home&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;setting-httpsocks-proxy-for-eclipse&quot;&gt;Setting http/socks proxy for Eclipse.&lt;/h3&gt;
-
-&lt;p&gt;Goto Menu: Window - Preferences&lt;/p&gt;
-
-&lt;p&gt;Goto General - Network Connections&lt;/p&gt;
-
-&lt;p&gt;Set &lt;code&gt;Active Provider&lt;/code&gt; to &lt;code&gt;Manual&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Set http or socks rows in &lt;code&gt;Proxy entries&lt;/code&gt;&lt;/p&gt;
-</description>
-        <pubDate>Fri, 29 Aug 2014 01:14:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-eclipse/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/proxy/2014/08/29/setting-proxy-for-eclipse/</guid>
       </item>
     
   </channel>
