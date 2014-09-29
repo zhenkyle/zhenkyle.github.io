@@ -7,6 +7,122 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>DAO 层设计方案: 如何减少普通CURD操作的重复</title>
+        <description>&lt;p&gt;在普通DAO层设计方案中,存在大量的普通CURD操作重复代码.解决方案如下&lt;/p&gt;
+
+&lt;h3 id=&quot;hibernate-dao&quot;&gt;使用泛型Hibernate DAO&lt;/h3&gt;
+
+&lt;h3 id=&quot;hibernatesessionfactory&quot;&gt;一种直接基于hibernate.SessionFactory的实现&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://1194867672-qq-com.iteye.com/blog/1159918&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;spring-hibernate-support-&quot;&gt;一种基于Spring Hibernate Support 的普通的实现&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/superzzz/article/details/6720348&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;aop&quot;&gt;一种使用AOP的实现&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.ibm.com/developerworks/cn/java/j-genericdao.html&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;spring-data-jpa&quot;&gt;使用Spring data JPA&lt;/h3&gt;
+
+&lt;p&gt;这是最好的方式&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/springside/springside4&quot;&gt;参考Springside&lt;/a&gt; 或 Spring data JPA文档&lt;/p&gt;
+</description>
+        <pubDate>Mon, 29 Sep 2014 20:44:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/2014/09/29/dao-design/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/2014/09/29/dao-design/</guid>
+      </item>
+    
+      <item>
+        <title>Hibernate ddl2auto create 方式的应用</title>
+        <description>&lt;p&gt;设置&lt;code&gt;hibernate.hbm2ddl.auto&lt;/code&gt;等于&lt;code&gt;create&lt;/code&gt;之后,haibernate会:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;每次启动时drop 掉所有的数据库表，并重新建表&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;如果classpath的根下有&lt;code&gt;import.sql&lt;/code&gt;，就执行它 (import.sql要用本地编码方式，如在windows下gbk,在mac/linux下utf8)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;因此,&lt;code&gt;hibernate.hbm2ddl.auto&lt;/code&gt;等于&lt;code&gt;create&lt;/code&gt;，在开发阶段导入测试初始数据时非常有用，但千万不能在生产环境中用，在生产环境中用会导致数据丢失。&lt;/p&gt;
+
+&lt;p&gt;与&lt;code&gt;create&lt;/code&gt;方式类似的是&lt;code&gt;hibernate.hbm2ddl.auto&lt;/code&gt;的&lt;code&gt;create-drop&lt;/code&gt;方式会在hibernate程序每次退出时，drop所有表。&lt;/p&gt;
+
+&lt;p&gt;在生产环境中应使用&lt;code&gt;none&lt;/code&gt;或&lt;code&gt;auto&lt;/code&gt;方式。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/673802/how-to-import-initial-data-to-database-with-hibernate&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 29 Sep 2014 11:46:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/hibernate/2014/09/29/hibernate-ddl2auto-create/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/hibernate/2014/09/29/hibernate-ddl2auto-create/</guid>
+      </item>
+    
+      <item>
+        <title>Hibernate POJO id 的设计策略</title>
+        <description>&lt;p&gt;当在Hibernate 中设计POJO 时,每一个POJO都应有一个id.&lt;/p&gt;
+
+&lt;p&gt;如果在前台界面(strtus)中不准备让用户自行维护该id,应将该id设计为自增型.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;generator class=&quot;identity&quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果在前台界面(struts)中准备让用户自行维护该id，可将该id设计为普通非自增型数据类型,然后再strtus中提供用户界面让用户维护.&lt;/p&gt;
+
+&lt;p&gt;更复杂的组合id,应建立一个自增性id作为无业务意义的物理id,再在业务逻辑层面保证组合id的唯一性.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 29 Sep 2014 11:25:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/struts/hibernate/2014/09/29/hibernate-pojo-id/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/struts/hibernate/2014/09/29/hibernate-pojo-id/</guid>
+      </item>
+    
+      <item>
+        <title>Eclipse 报警: must override a supperclass method</title>
+        <description>&lt;p&gt;实现接口时,报这个错.&lt;/p&gt;
+
+&lt;p&gt;解决方法&lt;/p&gt;
+
+&lt;p&gt;项目上点右键 进 &lt;code&gt;Properties - Java Build Path - Libraries&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;将&lt;code&gt;JRE System Library [JavaSE - 1.5]&lt;/code&gt; 改为 &lt;code&gt;JRE System Library [JavaSE - 1.7]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;再检查 &lt;code&gt;Properites - Java Compiler&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;应打钩 &lt;code&gt;Use compliance from execution environment &#39;JavaSE-1.7&#39; on the &#39;Java Build Path&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;参考&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/11298358/method-must-override-a-superclass-method-latest-sdk&quot;&gt;参考1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://mmqzlj.blog.51cto.com/2092359/803060&quot;&gt;参考2&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 27 Sep 2014 09:25:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/2014/09/27/must-override-a-supperclass-method/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/2014/09/27/must-override-a-supperclass-method/</guid>
+      </item>
+    
+      <item>
+        <title>批量装换gb2313文件到utf8</title>
+        <description>&lt;h3 id=&quot;linux&quot;&gt;在Linux下&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;files=`find . -name &#39;*.java&#39; | xargs enca -L zh | grep GB2312 | cut -d: -f1`
+for f in $files; do
+  iconv -f GBK -t UTF-8 $f &amp;gt; $f.utf &amp;amp;&amp;amp; mv -f $f.utf $f &amp;amp;&amp;amp; echo &quot;$f done&quot;
+done
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;参考&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/bamanzi/archive/2010/06/11/2547025.html&quot;&gt;参考1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://demi-panda.com/2013/01/12/linux-encoding-convert/&quot;&gt;参考2&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 27 Sep 2014 09:25:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/2014/09/27/batch-convert-gb2312-file-to-uft8/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/2014/09/27/batch-convert-gb2312-file-to-uft8/</guid>
+      </item>
+    
+      <item>
         <title>Struts 传递 model 到 view</title>
         <description>&lt;h3 id=&quot;struts--action--view--model--model&quot;&gt;Struts 在 action 和 view 传递 model 的传统方式： 传model的每一个属性&lt;/h3&gt;
 
@@ -445,199 +561,6 @@ you want to install a lot of software. Chocolatey comes to rescue.&lt;/p&gt;
         <pubDate>Sun, 31 Aug 2014 18:34:00 +0800</pubDate>
         <link>http://zhenkeblog.cn/java/2014/08/31/javac-utf8-error-solution/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/java/2014/08/31/javac-utf8-error-solution/</guid>
-      </item>
-    
-      <item>
-        <title>Install java development enviroment on OSX Mavericks</title>
-        <description>&lt;h3 id=&quot;install-jdk-8u20-by-hand&quot;&gt;Install jdk 8u20 by hand&lt;/h3&gt;
-&lt;p&gt;Mac OSX 10.6 and before shipped with Java 6, OSX 10.7 and above doesn’t shiped with Java.When execute &lt;code&gt;java -version&lt;/code&gt;&lt;br /&gt;
-command in Mavericks Terminal, a window popup, inform you that JDK is not installed , click on the “more information” &lt;br /&gt;
-button, will take you to the Oarcle site to download the most current jdk package. The most current jdk version is &lt;code&gt;8u20&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.java.com/en/download/faq/java_mac.xml&quot;&gt;Reference: Orcale java mac FAQ&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://osxdaily.com/2013/11/01/install-java-os-x-mavericks/&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;install-jdk-6-from-apple&quot;&gt;Install jdk 6 from Apple&lt;/h3&gt;
-
-&lt;p&gt;Mavericks doesn’t shipped with jdk 6. But jdk 6 can be obtained from Apple’s site. The most current jdk 6 version &lt;br /&gt;
-from Apple is &lt;code&gt;Java for OS X 2014-001&lt;/code&gt; .Here is Download link.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://support.apple.com/kb/DL1572&quot;&gt;Java 6 for OSX by Apple&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;recommend-way-to-install-jdk-and-other-develop-tools&quot;&gt;Recommend way to install jdk and other develop tools&lt;/h3&gt;
-
-&lt;p&gt;The recommend way to install jdk and other develop tools is by &lt;a href=&quot;http://brew.sh/&quot;&gt;home brew&lt;/a&gt;.&lt;br /&gt;
-We like package management.&lt;/p&gt;
-
-&lt;p&gt;First, install Homebrew.
-&lt;code&gt;
-ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Second, install &lt;a href=&quot;http://caskroom.io/&quot;&gt;Homebrew Cask&lt;/a&gt;
-&lt;code&gt;
-brew install caskroom/cask/brew-cask
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Then,  install java with the most current version (8u20 at this time)
-&lt;code&gt;
-brew cask install java
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;install-other-things&quot;&gt;Install other things&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;brew install ant
-brew install maven
-brew install gradle
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://derjan.io/blog/2013/11/25/setup-mac-for-development/&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://ksmx.me/homebrew-cask-cli-workflow-to-install-mac-applications/&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/homebrew-cask.html&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.google.com.hk/search?q=home+brew+cask&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;if-need-to-install-multiple-java-version&quot;&gt;If need to install multiple java version&lt;/h3&gt;
-&lt;p&gt;use jenv&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://hanxue-it.blogspot.com/2014/05/installing-java-8-managing-multiple.html&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://meng6.net/pages/computing/installing_and_configuring/installing_and_configuring_java_on_mac/#.VAK7r7ySymN&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 31 Aug 2014 18:34:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/java/2014/08/31/install-java-development-enviroment-on-osx-mavervicks/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/java/2014/08/31/install-java-development-enviroment-on-osx-mavervicks/</guid>
-      </item>
-    
-      <item>
-        <title>XPEnology NAS install DSM 5.0 4493 Update 4</title>
-        <description>&lt;p&gt;The same as install 4493 Update 3&lt;/p&gt;
-
-&lt;p&gt;Download update but not install using web UI&lt;/p&gt;
-
-&lt;p&gt;ssh to dsm&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sed &#39;s/flashupdateDeb/flashupdateDeb1/&#39; /autoupd@te.info &amp;gt; /autoupd@te.info1&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;mv /autoupd@te.info1 /autoupd@te.info&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Now install update using web UI&lt;/p&gt;
-
-&lt;h3 id=&quot;reapply-dnspodcn-patch&quot;&gt;Reapply DNSPod.cn patch&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;sed -i -re &#39;/\[DNSPod\.cn\]/{n;s@modulepath=.+@modulepath=/sbin/dnspod.sh@}&#39; /etc.defaults/ddns_provider.conf
-sed -i -re &#39;/\[DNSPod\.cn\]/{n;s@modulepath=.+@modulepath=/sbin/dnspod.sh@}&#39; /etc/ddns_provider.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;/sbin/dnspod.sh&lt;/code&gt; is my dnspod update shell.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.xpenology.nl/installatie-dsm-5-0-4493-update-3/&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 30 Aug 2014 01:34:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/xpenology/2014/08/30/xpenology-install-dsm-5.0-4493-update4/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/xpenology/2014/08/30/xpenology-install-dsm-5.0-4493-update4/</guid>
-      </item>
-    
-      <item>
-        <title>Enable GBK Encoding support in Sublime Text 3</title>
-        <description>&lt;p&gt;Sublime Text Only support UTF-8. To enable edit GBK files, we need to install Package Control, and ConvertToUTF8 package.&lt;/p&gt;
-
-&lt;h3 id=&quot;install-package-control&quot;&gt;Install Package Control&lt;/h3&gt;
-
-&lt;p&gt;Following Package Control official installtion instructions&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://sublime.wbond.net/installation&quot;&gt;Package Control INSTALLTION&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;install-converttoutf8-package&quot;&gt;Install ConvertToUTF8 package&lt;/h3&gt;
-
-&lt;p&gt;open Preferences Menu - Package Control &lt;/p&gt;
-
-&lt;p&gt;goto Install Packages&lt;/p&gt;
-
-&lt;p&gt;search for ConverToUTF8&lt;/p&gt;
-
-&lt;p&gt;press return to install&lt;/p&gt;
-
-&lt;h3 id=&quot;test&quot;&gt;Test&lt;/h3&gt;
-
-&lt;p&gt;Now you can open GBK encoding files, ConverToUTF8 plugin open GBK file, convert it to UTF-8 for editting and convert it back to GBK for save automaticly.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://aoxuis.me/posts/2013/09/26/sublime-text-3-gb2312-gbk-utf8&quot;&gt;Reference&lt;/a&gt;
-&lt;a href=&quot;http://www.iplaysoft.com/sublimetext.html&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 30 Aug 2014 00:32:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/sublime_text/2014/08/30/enable-gbk-encoding-support-in-sublime-text-3/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/sublime_text/2014/08/30/enable-gbk-encoding-support-in-sublime-text-3/</guid>
-      </item>
-    
-      <item>
-        <title>Eclipse Trick: generate getter setter</title>
-        <description>&lt;p&gt;Convert&lt;br /&gt;
-```&lt;br /&gt;
-package com.mycompany.app.service;&lt;/p&gt;
-
-&lt;p&gt;public class PersonService {&lt;br /&gt;
-  private String name;&lt;/p&gt;
-
-&lt;p&gt;}&lt;br /&gt;
-```&lt;/p&gt;
-
-&lt;p&gt;to&lt;/p&gt;
-
-&lt;p&gt;```&lt;br /&gt;
-package com.mycompany.app.service;&lt;/p&gt;
-
-&lt;p&gt;public class PersonService {&lt;br /&gt;
-  private String name;&lt;/p&gt;
-
-&lt;p&gt;public String getName() {&lt;br /&gt;
-    return this.name;&lt;br /&gt;
-  }&lt;br /&gt;
-  public void setName(String name) {&lt;br /&gt;
-    this.name = name;&lt;br /&gt;
-  }&lt;br /&gt;
-}```&lt;/p&gt;
-
-&lt;p&gt;Go Source Menu - Generate Getter and Setters&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/maybe_windleave/article/details/8852555&quot;&gt;Eclipse用法和技巧六：自动生成get和set方法1&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Fri, 29 Aug 2014 17:01:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/eclipse/2014/08/29/eclipse-generate-getter-setter/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/eclipse/2014/08/29/eclipse-generate-getter-setter/</guid>
-      </item>
-    
-      <item>
-        <title>Maven Integration for eclipse</title>
-        <description>&lt;h3 id=&quot;about-maven-integrationm2e-for-eclipse&quot;&gt;About Maven Integration(m2e) for eclipse&lt;/h3&gt;
-&lt;p&gt;m2e is the offical , first class Maven plugin for Eclipse IDE.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.eclipse.org/m2e/&quot;&gt;m2e Home&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;m2e-not-work-behind-proxy-problem&quot;&gt;m2e not work behind proxy problem&lt;/h3&gt;
-
-&lt;p&gt;I’m behind a NTLM proxy, I tried many ways, but I still can’t get m2e load online artifacts catalog files.&lt;/p&gt;
-
-&lt;p&gt;There is &lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=355774&quot;&gt;Bug reported by someone earily&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;work-around-1&quot;&gt;Work Around 1&lt;/h4&gt;
-
-&lt;p&gt;I can use maven command line to generate a maven project, the import the exsiting maven project into Eclipse.&lt;/p&gt;
-
-&lt;h4 id=&quot;work-around-2&quot;&gt;Work Around 2&lt;/h4&gt;
-
-&lt;p&gt;Use another way, use &lt;code&gt;Maven Eclipse Plugin (m-e-p)&lt;/code&gt;. This one is a maven command line plugin, it is not compatible with m2e. Every time you change POM file, you should run this plugin to regenerate eclipse project file.&lt;/p&gt;
-
-&lt;p&gt;See &lt;a href=&quot;http://maven.apache.org/eclipse-plugin.html&quot;&gt;Apache Maven Site&lt;/a&gt; for details.&lt;/p&gt;
-
-&lt;h3 id=&quot;m2e-settings-and-howtos&quot;&gt;m2e settings and howtos&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/qjyong/article/details/9098213&quot;&gt;m2e settings and howtos&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Fri, 29 Aug 2014 01:27:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/maven/proxy/2014/08/29/maven-integration-for-eclipse/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/maven/proxy/2014/08/29/maven-integration-for-eclipse/</guid>
       </item>
     
   </channel>
