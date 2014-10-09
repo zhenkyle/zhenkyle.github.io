@@ -7,6 +7,44 @@
     <atom:link href="http://zhenkeblog.cn/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>实现 Hibernate composite id 的几种方式</title>
+        <description>&lt;p&gt;网上很多的资料都是过时的或不全面。最新、最全的资料应该来自Hibernate官方文档 5.1.2.1. Composite identifier节。&lt;/p&gt;
+
+&lt;h3 id=&quot;composite-id&quot;&gt;对于新项目尽量不要使用composite id&lt;/h3&gt;
+
+&lt;p&gt;composite id 仅仅是用于对付legacy 数据库的。对于新项目，应该让每个实体都有一个id字段，该字段可以是不代表业务含义的逻辑id。&lt;/p&gt;
+
+&lt;h3 id=&quot;composite-id-3&quot;&gt;实现composite id 有3种大方式&lt;/h3&gt;
+
+&lt;h4 id=&quot;embeddedid&quot;&gt;@EmbeddedId方式&lt;/h4&gt;
+
+&lt;p&gt;又分两种方式&lt;/p&gt;
+
+&lt;h5 id=&quot;jpa-&quot;&gt;JPA 方式&lt;/h5&gt;
+
+&lt;p&gt;在@Entity中定义@ManyToOne @OneToOne等关系，@Embeddable 中只能是id字段，不能是@Entity&lt;/p&gt;
+
+&lt;h5 id=&quot;jpa&quot;&gt;不兼容JPA方式&lt;/h5&gt;
+
+&lt;p&gt;在@Embeddable 中定义@ManyToOne @OneToOne等关系，@Embeddable 中可以是@Entity&lt;/p&gt;
+
+&lt;h4 id=&quot;id&quot;&gt;多@id方式&lt;/h4&gt;
+
+&lt;p&gt;仅Hibernate支持，很多使用&lt;code&gt;hbm.xml&lt;/code&gt;的老代码都是这种方式&lt;/p&gt;
+
+&lt;h4 id=&quot;idclass-&quot;&gt;@IdClass 方式&lt;/h4&gt;
+
+&lt;p&gt;不推荐使用&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;参考&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://docs.jboss.org/hibernate/orm/4.3/manual/en-US/html/ch05.html#mapping-declaration-id&quot;&gt;Hibernate 官方文档 5.1.2.1. Composite identifier&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 07 Oct 2014 11:27:00 +0800</pubDate>
+        <link>http://zhenkeblog.cn/2014/10/07/hibernate-composite-id-methods/</link>
+        <guid isPermaLink="true">http://zhenkeblog.cn/2014/10/07/hibernate-composite-id-methods/</guid>
+      </item>
+    
+      <item>
         <title>DAO 层设计方案: 如何减少普通CURD操作的重复</title>
         <description>&lt;p&gt;在普通DAO层设计方案中,存在大量的普通CURD操作重复代码.解决方案如下&lt;/p&gt;
 
@@ -541,26 +579,6 @@ you want to install a lot of software. Chocolatey comes to rescue.&lt;/p&gt;
         <pubDate>Wed, 10 Sep 2014 14:11:00 +0800</pubDate>
         <link>http://zhenkeblog.cn/2014/09/10/chocolatey-a-windows-package-manager/</link>
         <guid isPermaLink="true">http://zhenkeblog.cn/2014/09/10/chocolatey-a-windows-package-manager/</guid>
-      </item>
-    
-      <item>
-        <title>Javac “编码 UTF8 的不可映射字符“ error solution</title>
-        <description>&lt;p&gt;用ant编译时出现“编码 UTF8 的不可映射字符“，这是因为编译的时候编码跟文件存储的编码方式不一样造成的&lt;/p&gt;
-
-&lt;p&gt;用GBK编码的，那么就会出现“编码 UTF8 的不可映射字符“，解决办法：  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;javac srcdir=&quot;src&quot; destdir=&quot;build/classes&quot;&amp;gt;
-     &amp;lt;compilerarg line=&quot;-encoding GBK &quot;/&amp;gt;  
-&amp;lt;/javac&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;以上语句告诉ant用GBK编码方式编译源文件&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/seeds_home/article/details/7327728&quot;&gt;来源&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 31 Aug 2014 18:34:00 +0800</pubDate>
-        <link>http://zhenkeblog.cn/java/2014/08/31/javac-utf8-error-solution/</link>
-        <guid isPermaLink="true">http://zhenkeblog.cn/java/2014/08/31/javac-utf8-error-solution/</guid>
       </item>
     
   </channel>
